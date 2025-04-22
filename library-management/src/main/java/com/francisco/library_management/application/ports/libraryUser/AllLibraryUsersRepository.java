@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.francisco.library_management.domain.models.Category;
+import com.francisco.library_management.domain.models.LibraryUser;
 
 @Repository
-public interface AllCategoriesRepository {
-	List<Category> getAllCategories();
+public interface AllLibraryUsersRepository {
+	List<LibraryUser> getAllLibraryUsers();
 }

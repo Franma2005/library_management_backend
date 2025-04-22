@@ -11,10 +11,10 @@ import com.francisco.library_management.domain.models.LibraryUser;
 @RequestMapping("/libraryUser")
 public class LibraryUserController {
 
-	public ResponseEntity<LibraryUser> getLibraryUser(
-			@RequestParam long id,
-			@RequestParam String name,
-			@RequestParam String surname
+	public ResponseEntity<LibraryUser> getAllLibraryUser(
+			@RequestParam(required = false) long id,
+			@RequestParam(required = false) String name,
+			@RequestParam(required = false) String surname
 	) {
 		return null;
 	}

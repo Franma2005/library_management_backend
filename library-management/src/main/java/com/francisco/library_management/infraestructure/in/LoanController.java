@@ -12,10 +12,22 @@ import com.francisco.library_management.domain.models.Loan;
 public class LoanController {
 
 	public ResponseEntity<Loan> getAllLoan(
-			@RequestParam long idLoan,
-			@RequestParam long idBook,
-			@RequestParam long idLibraryUser
+			@RequestParam(required = false) long idLoan,
+			@RequestParam(required = false) long idBook,
+			@RequestParam(required = false) long idLibraryUser
  	) {
+		return null;
+	}
+	
+	public ResponseEntity<Loan> createLoan() {
+		return null;
+	}
+	
+	public ResponseEntity<Loan> updateLoan() {
+		return null;
+	}
+	
+	public ResponseEntity<Loan> deleteLoan() {
 		return null;
 	}
 	

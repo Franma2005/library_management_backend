@@ -12,8 +12,8 @@ import com.francisco.library_management.domain.models.Category;
 public class CategoryController {
 
 	public ResponseEntity<Category> getAllCategory(
-			@RequestParam long id,
-			@RequestParam String category
+			@RequestParam(required = false) long id,
+			@RequestParam(required = false) String category
 	) {
 		return null;
 	}

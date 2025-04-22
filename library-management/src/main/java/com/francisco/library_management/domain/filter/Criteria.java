@@ -18,5 +18,4 @@ public class Criteria {
 	public List<Filter> getFilter() {
 		return filters;
 	}
-	
 }

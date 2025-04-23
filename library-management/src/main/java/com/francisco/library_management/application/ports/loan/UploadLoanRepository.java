@@ -6,5 +6,5 @@ import com.francisco.library_management.domain.models.Loan;
 
 @Repository
 public interface UploadLoanRepository {
-	void uploadLoan(Loan loan);
+	boolean uploadLoan(Loan loan);
 }

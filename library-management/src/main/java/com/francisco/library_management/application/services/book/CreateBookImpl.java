@@ -3,6 +3,7 @@ package com.francisco.library_management.application.services.book;
 import org.springframework.stereotype.Service;
 
 import com.francisco.library_management.application.ports.book.CreateBookRepository;
+import com.francisco.library_management.application.ports.notification.NotificationBookPort;
 import com.francisco.library_management.application.services.servicesInterfaces.book.CreateBook;
 import com.francisco.library_management.domain.models.Book;
 
@@ -10,14 +11,17 @@ import com.francisco.library_management.domain.models.Book;
 public class CreateBookImpl implements CreateBook {
 
 	private CreateBookRepository createBookRepository;
+	private NotificationBookPort notificationRepository;
 	
-	public CreateBookImpl(CreateBookRepository createBookRepository) {
+	public CreateBookImpl(CreateBookRepository createBookRepository, NotificationBookPort notificationRepository) {
 		this.createBookRepository = createBookRepository;
+		this.notificationRepository = notificationRepository;
 	}
 	
 	@Override
 	public void createBook(Book book) {
 		createBookRepository.createBook(book);
+		notificationRepository.notifyBooksChanges();
 	}
 	
 }

@@ -22,4 +22,5 @@ public class LoanByCriteriaImpl implements LoanByCriteria {
 	public List<Loan> getLoanByCriteria(Criteria criteria) {
 		return loanByCriteriaRepository.findLoanByCriteria(criteria);
 	}
+	
 }

@@ -1,36 +1,48 @@
 package com.francisco.library_management.infraestructure.in;
 
-import java.awt.print.Book;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.francisco.library_management.infraestructure.dto.BookDto;
+import com.francisco.library_management.infraestructure.recive.BookRecive;
+import com.francisco.library_management.usecase.book.CreateBookUseCase;
 
 @RestController
 @RequestMapping("/book")
 public class BookController {
 
-	public ResponseEntity<List<Book>> getAllBooks(
-			@RequestParam(required = false) long id,
+	private CreateBookUseCase createBookUseCase;
+	
+	public BookController(CreateBookUseCase createBookUseCase) {
+		this.createBookUseCase = createBookUseCase;
+	}
+	
+	public ResponseEntity<List<BookDto>> getAllBooks(
+			@RequestParam(required = false) Long id,
 			@RequestParam(required = false) String name,
 			@RequestParam(required = false) String author,
 			@RequestParam(required = false) String editorial,
-			@RequestParam(required = false) long category
+			@RequestParam(required = false) Long category
 	) {
 		return null;
 	}
 	
-	public ResponseEntity<Book> createBook() {
+	public ResponseEntity<BookDto> createBook(
+			@RequestBody BookRecive bookRecive
+	) {
+		return createBookUseCase.createBook(bookRecive);
+	}
+	
+	public ResponseEntity<BookDto> updateBook() {
 		return null;
 	}
 	
-	public ResponseEntity<Book> updateBook() {
-		return null;
-	}
-	
-	public ResponseEntity<Book> deleteBook() {
+	public ResponseEntity<BookDto> deleteBook() {
 		return null;
 	}
 	

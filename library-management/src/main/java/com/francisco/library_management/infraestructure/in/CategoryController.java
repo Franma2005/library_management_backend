@@ -5,28 +5,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.francisco.library_management.domain.models.Category;
+import com.francisco.library_management.infraestructure.dto.CategoryDto;
 
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
 
-	public ResponseEntity<Category> getAllCategory(
+	public ResponseEntity<CategoryDto> getAllCategory(
 			@RequestParam(required = false) long id,
 			@RequestParam(required = false) String category
 	) {
 		return null;
 	}
 	
-	public ResponseEntity<Category> createCategory() {
+	public ResponseEntity<CategoryDto> createCategory() {
 		return null;
 	}
 	
-	public ResponseEntity<Category> updateCategory() {
+	public ResponseEntity<CategoryDto> updateCategory() {
 		return null;
 	}
 	
-	public ResponseEntity<Category> deleteCategory() {
+	public ResponseEntity<CategoryDto> deleteCategory() {
 		return null;
 	}
 	

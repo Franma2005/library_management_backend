@@ -5,13 +5,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.francisco.library_management.domain.models.LibraryUser;
+import com.francisco.library_management.infraestructure.dto.LibraryUserDto;
 
 @RestController
 @RequestMapping("/libraryUser")
 public class LibraryUserController {
 
-	public ResponseEntity<LibraryUser> getAllLibraryUser(
+	public ResponseEntity<LibraryUserDto> getAllLibraryUser(
 			@RequestParam(required = false) long id,
 			@RequestParam(required = false) String name,
 			@RequestParam(required = false) String surname
@@ -19,15 +19,15 @@ public class LibraryUserController {
 		return null;
 	}
 	
-	public ResponseEntity<LibraryUser> createLibraryUser() {
+	public ResponseEntity<LibraryUserDto> createLibraryUser() {
 		return null;
 	}
 	
-	public ResponseEntity<LibraryUser> updateLibraryUser() {
+	public ResponseEntity<LibraryUserDto> updateLibraryUser() {
 		return null;
 	}
 	
-	public ResponseEntity<LibraryUser> deleteLibraryUser() {
+	public ResponseEntity<LibraryUserDto> deleteLibraryUser() {
 		return null;
 	}
 	

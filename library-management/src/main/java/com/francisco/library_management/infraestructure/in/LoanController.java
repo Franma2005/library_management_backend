@@ -5,13 +5,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.francisco.library_management.domain.models.Loan;
+import com.francisco.library_management.infraestructure.dto.LoanDto;
 
 @RestController
 @RequestMapping("/loan")
 public class LoanController {
 
-	public ResponseEntity<Loan> getAllLoan(
+	public ResponseEntity<LoanDto> getAllLoan(
 			@RequestParam(required = false) long idLoan,
 			@RequestParam(required = false) long idBook,
 			@RequestParam(required = false) long idLibraryUser
@@ -19,15 +19,15 @@ public class LoanController {
 		return null;
 	}
 	
-	public ResponseEntity<Loan> createLoan() {
+	public ResponseEntity<LoanDto> createLoan() {
 		return null;
 	}
 	
-	public ResponseEntity<Loan> updateLoan() {
+	public ResponseEntity<LoanDto> updateLoan() {
 		return null;
 	}
 	
-	public ResponseEntity<Loan> deleteLoan() {
+	public ResponseEntity<LoanDto> deleteLoan() {
 		return null;
 	}
 	

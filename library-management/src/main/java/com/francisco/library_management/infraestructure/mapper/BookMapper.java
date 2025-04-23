@@ -17,7 +17,7 @@ public class BookMapper {
 				.build();
 	}
 	
-	public static BookDto bookReciveToBookDto(Book book) {
+	public static BookDto bookToBookDto(Book book) {
 		return BookDto.builder()
 				.id(book.getId())
 				.name(book.getName())

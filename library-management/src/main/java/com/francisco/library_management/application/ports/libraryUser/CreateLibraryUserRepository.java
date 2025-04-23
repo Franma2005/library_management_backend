@@ -6,5 +6,5 @@ import com.francisco.library_management.domain.models.LibraryUser;
 
 @Repository
 public interface CreateLibraryUserRepository {
-	void createLibraryUser(LibraryUser libraryUser);
+	boolean createLibraryUser(LibraryUser libraryUser);
 }

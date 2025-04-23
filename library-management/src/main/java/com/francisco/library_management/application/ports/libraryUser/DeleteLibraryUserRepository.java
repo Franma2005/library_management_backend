@@ -4,5 +4,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DeleteLibraryUserRepository {
-	void deleteLibraryUser(long id);
+	boolean deleteLibraryUser(long id);
 }

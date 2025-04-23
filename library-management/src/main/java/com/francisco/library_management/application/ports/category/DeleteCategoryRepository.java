@@ -4,5 +4,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DeleteCategoryRepository {
-	void deleteCategory(long id);
+	boolean deleteCategory(long id);
 }

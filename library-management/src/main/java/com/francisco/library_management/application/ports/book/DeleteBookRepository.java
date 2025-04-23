@@ -4,5 +4,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DeleteBookRepository {
-	void deleteBook(long id);
+	boolean deleteBook(long id);
 }

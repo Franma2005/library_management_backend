@@ -4,5 +4,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DeleteLoanRepository {
-	void deleteLoan(long id);
+	boolean deleteLoan(long id);
 }

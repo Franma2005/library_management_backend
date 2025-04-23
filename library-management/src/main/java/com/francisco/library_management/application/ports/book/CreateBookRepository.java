@@ -6,5 +6,5 @@ import com.francisco.library_management.domain.models.Book;
 
 @Repository
 public interface CreateBookRepository {
-	void createBook(Book book);
+	boolean createBook(Book book);
 }

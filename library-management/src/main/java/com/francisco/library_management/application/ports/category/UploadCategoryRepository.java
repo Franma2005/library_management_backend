@@ -6,5 +6,5 @@ import com.francisco.library_management.domain.models.Category;
 
 @Repository
 public interface UploadCategoryRepository {
-	void uploadCategory(Category category);
+	boolean uploadCategory(Category category);
 }

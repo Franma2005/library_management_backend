@@ -6,5 +6,5 @@ import com.francisco.library_management.domain.models.Category;
 
 @Repository
 public interface CreateCategoryRepository {
-	void createCategory(Category category);
+	boolean createCategory(Category category);
 }

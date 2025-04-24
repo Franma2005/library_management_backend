@@ -37,8 +37,8 @@ public class AllCategoriesUseCase {
 				:
 				categoryByCriteriaImpl.getCategoryByCriteria(criteria);
 		
-		List<CategoryDto> categoryDto = CategoryGroupMapper.categoryGrouptoCategoryDtoGroup(categoryReciveGroup);
-		
-		return ResponseEntity.ok(categoryDto);
+		return ResponseEntity.ok(
+				CategoryGroupMapper.categoryGrouptoCategoryDtoGroup(categoryReciveGroup)
+			);
 	}
 }

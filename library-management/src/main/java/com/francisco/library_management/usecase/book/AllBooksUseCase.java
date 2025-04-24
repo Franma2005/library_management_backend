@@ -40,9 +40,9 @@ public class AllBooksUseCase {
 				:
 				bookByCriteria.getBookByCriteria(criteria);
 		
-		List<BookDto> bookDto = BookGroupMapper.bookGrouptoBookGroupDto(book);
-		
-		return ResponseEntity.ok(bookDto);
+		return ResponseEntity.ok(
+				BookGroupMapper.bookGrouptoBookGroupDto(book)
+			);
 	}
 	
 }

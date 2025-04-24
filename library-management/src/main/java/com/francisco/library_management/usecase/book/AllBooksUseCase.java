@@ -11,8 +11,7 @@ import com.francisco.library_management.domain.filter.Criteria;
 import com.francisco.library_management.domain.filter.CriteriaBuilder;
 import com.francisco.library_management.domain.models.Book;
 import com.francisco.library_management.infraestructure.dto.BookDto;
-import com.francisco.library_management.infraestructure.mapper.BookMapper;
-import com.francisco.library_management.infraestructure.recive.BookRecive;
+import com.francisco.library_management.infraestructure.mapper.BookGroupMapper;
 
 public class AllBooksUseCase {
 
@@ -36,14 +35,14 @@ public class AllBooksUseCase {
 				.addFilterIfPresent("id", Optional.ofNullable(id))
 				.build();
 		
-		List<Book> bookRecive = criteria.getFilter().isEmpty() ?
+		List<Book> book = criteria.getFilter().isEmpty() ?
 				allBookImpl.getAllBooks()
 				:
-				bookByCriteria.getBookByCriteria(criteria)
+				bookByCriteria.getBookByCriteria(criteria);
 		
+		List<BookDto> bookDto = BookGroupMapper.bookGrouptoBookGroupDto(book);
 		
-		
-		return ;
+		return ResponseEntity.ok(bookDto);
 	}
 	
 }

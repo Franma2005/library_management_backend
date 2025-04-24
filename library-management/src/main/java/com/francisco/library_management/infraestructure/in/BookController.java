@@ -10,15 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.francisco.library_management.infraestructure.dto.BookDto;
 import com.francisco.library_management.infraestructure.recive.BookRecive;
+import com.francisco.library_management.usecase.book.AllBooksUseCase;
 import com.francisco.library_management.usecase.book.CreateBookUseCase;
 
 @RestController
 @RequestMapping("/book")
 public class BookController {
 
+	private AllBooksUseCase allBooksUseCase;
 	private CreateBookUseCase createBookUseCase;
 	
-	public BookController(CreateBookUseCase createBookUseCase) {
+	public BookController(AllBooksUseCase allBooksUseCase, CreateBookUseCase createBookUseCase) {
+		this.allBooksUseCase = allBooksUseCase;
 		this.createBookUseCase = createBookUseCase;
 	}
 	
@@ -29,7 +32,13 @@ public class BookController {
 			@RequestParam(required = false) String editorial,
 			@RequestParam(required = false) Long category
 	) {
-		return null;
+		return allBooksUseCase.findAllBook(
+				id,
+				name,
+				author,
+				editorial,
+				category
+		);
 	}
 	
 	public ResponseEntity<BookDto> createBook(

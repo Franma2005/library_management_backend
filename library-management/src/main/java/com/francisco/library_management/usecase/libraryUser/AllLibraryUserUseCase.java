@@ -23,7 +23,7 @@ public class AllLibraryUserUseCase {
 	}
 	
 	public ResponseEntity<List<LibraryUserDto>> findLibraryUser(
-			long id,
+			Long id,
 			String name,
 			String surname
 	) {

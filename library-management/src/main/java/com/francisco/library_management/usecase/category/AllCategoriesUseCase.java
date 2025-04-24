@@ -24,7 +24,7 @@ public class AllCategoriesUseCase {
 	}
 	
 	public ResponseEntity<List<CategoryDto>> findAllCategories(
-			long id,
+			Long id,
 			String category
 	) {
 		Criteria criteria = new CriteriaBuilder()

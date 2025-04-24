@@ -12,6 +12,7 @@ import com.francisco.library_management.infraestructure.dto.LoanDto;
 import com.francisco.library_management.infraestructure.recive.LoanRecive;
 import com.francisco.library_management.usecase.loan.AllLoansUseCase;
 import com.francisco.library_management.usecase.loan.CreateLoanUseCase;
+import com.francisco.library_management.usecase.loan.UploadLoanUseCase;
 
 @RestController
 @RequestMapping("/loan")
@@ -19,10 +20,12 @@ public class LoanController {
 
 	private AllLoansUseCase allLoansUseCase;
 	private CreateLoanUseCase createLoanUseCase;
+	private UploadLoanUseCase updateLoanUseCase;
 	
-	public LoanController(AllLoansUseCase allLoansUseCase, CreateLoanUseCase createLoanUseCase) {
+	public LoanController(AllLoansUseCase allLoansUseCase, CreateLoanUseCase createLoanUseCase, UploadLoanUseCase uploadLoanUseCase) {
 		this.allLoansUseCase = allLoansUseCase;
 		this.createLoanUseCase = createLoanUseCase;
+		this.updateLoanUseCase = updateLoanUseCase;
 	}
 	
 	public ResponseEntity<List<LoanDto>> getAllLoan(
@@ -43,8 +46,10 @@ public class LoanController {
 		return createLoanUseCase.createLoan(loanRecive);
 	}
 	
-	public ResponseEntity<LoanDto> updateLoan() {
-		return null;
+	public ResponseEntity<LoanDto> updateLoan(
+			@RequestBody LoanRecive loanRecive
+	) {
+		return updateLoanUseCase.updateLoan(loanRecive);
 	}
 	
 	public ResponseEntity<LoanDto> deleteLoan() {

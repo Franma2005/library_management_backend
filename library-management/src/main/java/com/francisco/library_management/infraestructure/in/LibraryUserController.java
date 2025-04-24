@@ -12,6 +12,7 @@ import com.francisco.library_management.infraestructure.dto.LibraryUserDto;
 import com.francisco.library_management.infraestructure.recive.LibraryUserRecive;
 import com.francisco.library_management.usecase.libraryUser.AllLibraryUserUseCase;
 import com.francisco.library_management.usecase.libraryUser.CreateLibraryUserUseCase;
+import com.francisco.library_management.usecase.libraryUser.UploadLibraryUserUseCase;
 
 @RestController
 @RequestMapping("/libraryUser")
@@ -19,10 +20,12 @@ public class LibraryUserController {
 
 	private AllLibraryUserUseCase allLibraryUserUseCase;
 	private CreateLibraryUserUseCase createLibraryUserUseCase;
+	private UploadLibraryUserUseCase updateLibraryUserUseCase;
 	
-	public LibraryUserController(AllLibraryUserUseCase allLibraryUserUseCase, CreateLibraryUserUseCase createLibraryUserUseCase) {
+	public LibraryUserController(AllLibraryUserUseCase allLibraryUserUseCase, CreateLibraryUserUseCase createLibraryUserUseCase, UploadLibraryUserUseCase updateLibraryUserUseCase) {
 		this.allLibraryUserUseCase = allLibraryUserUseCase;
 		this.createLibraryUserUseCase = createLibraryUserUseCase;
+		this.updateLibraryUserUseCase = updateLibraryUserUseCase;
 	}
 	
 	public ResponseEntity<List<LibraryUserDto>> getAllLibraryUser(
@@ -43,8 +46,10 @@ public class LibraryUserController {
 		return createLibraryUserUseCase.createLibraryUser(libraryUserRecive);
 	}
 	
-	public ResponseEntity<LibraryUserDto> updateLibraryUser() {
-		return null;
+	public ResponseEntity<LibraryUserDto> updateLibraryUser(
+			@RequestBody LibraryUserRecive libraryUserRecive		
+	) {
+		return updateLibraryUserUseCase.updateLibraryUser(libraryUserRecive);
 	}
 	
 	public ResponseEntity<LibraryUserDto> deleteLibraryUser() {

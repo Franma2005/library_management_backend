@@ -12,6 +12,7 @@ import com.francisco.library_management.infraestructure.dto.CategoryDto;
 import com.francisco.library_management.infraestructure.recive.CategoryRecive;
 import com.francisco.library_management.usecase.category.AllCategoriesUseCase;
 import com.francisco.library_management.usecase.category.CreateCategoryUseCase;
+import com.francisco.library_management.usecase.category.UploadCategoryUseCase;
 
 @RestController
 @RequestMapping("/category")
@@ -19,10 +20,12 @@ public class CategoryController {
 
 	private AllCategoriesUseCase allCategoriesUseCase;
 	private CreateCategoryUseCase createCategoryUseCase;
+	private UploadCategoryUseCase updateCategoryUseCase;
 	
-	public CategoryController(AllCategoriesUseCase allCategoriesUseCase, CreateCategoryUseCase createCategoryUseCase) {
+	public CategoryController(AllCategoriesUseCase allCategoriesUseCase, CreateCategoryUseCase createCategoryUseCase, UploadCategoryUseCase updateCategoryUseCase) {
 		this.allCategoriesUseCase = allCategoriesUseCase;
 		this.createCategoryUseCase = createCategoryUseCase;
+		this.updateCategoryUseCase = updateCategoryUseCase;
 	}
 	
 	public ResponseEntity<List<CategoryDto>> getAllCategory(
@@ -41,8 +44,10 @@ public class CategoryController {
 		return createCategoryUseCase.createCategory(categoryRecive);
 	}
 	
-	public ResponseEntity<CategoryDto> updateCategory() {
-		return null;
+	public ResponseEntity<CategoryDto> updateCategory(
+			@RequestBody CategoryRecive categoryRecive		
+	) {
+		return updateCategoryUseCase.updateCategory(categoryRecive);
 	}
 	
 	public ResponseEntity<CategoryDto> deleteCategory() {

@@ -18,11 +18,8 @@ public class UploadBookUseCase {
 	
 	public ResponseEntity<BookDto> uploadBook(BookRecive bookRecive) {
 		Book book = BookMapper.bookReciveToBook(bookRecive);
-		
 		uploadBookRepository.uploadBook(book);
-		
 		BookDto bookDto = BookMapper.bookToBookDto(book);
-		
 		return ResponseEntity.ok(bookDto);
 	}
 }

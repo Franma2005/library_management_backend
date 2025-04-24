@@ -12,6 +12,7 @@ import com.francisco.library_management.infraestructure.dto.BookDto;
 import com.francisco.library_management.infraestructure.recive.BookRecive;
 import com.francisco.library_management.usecase.book.AllBooksUseCase;
 import com.francisco.library_management.usecase.book.CreateBookUseCase;
+import com.francisco.library_management.usecase.book.UploadBookUseCase;
 
 @RestController
 @RequestMapping("/book")
@@ -19,10 +20,12 @@ public class BookController {
 
 	private AllBooksUseCase allBooksUseCase;
 	private CreateBookUseCase createBookUseCase;
+	private UploadBookUseCase updateBookUseCase;
 	
-	public BookController(AllBooksUseCase allBooksUseCase, CreateBookUseCase createBookUseCase) {
+	public BookController(AllBooksUseCase allBooksUseCase, CreateBookUseCase createBookUseCase, UploadBookUseCase updateBookUseCase) {
 		this.allBooksUseCase = allBooksUseCase;
 		this.createBookUseCase = createBookUseCase;
+		this.updateBookUseCase = updateBookUseCase;
 	}
 	
 	public ResponseEntity<List<BookDto>> getAllBooks(
@@ -47,8 +50,10 @@ public class BookController {
 		return createBookUseCase.createBook(bookRecive);
 	}
 	
-	public ResponseEntity<BookDto> updateBook() {
-		return null;
+	public ResponseEntity<BookDto> updateBook(
+			@RequestBody BookRecive bookRecive		
+	) {
+		return updateBookUseCase.uploadBook(bookRecive);
 	}
 	
 	public ResponseEntity<BookDto> deleteBook() {

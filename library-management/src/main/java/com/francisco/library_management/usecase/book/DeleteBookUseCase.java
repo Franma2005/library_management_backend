@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.francisco.library_management.application.services.book.DeleteBookImpl;
 import com.francisco.library_management.infraestructure.dto.BookDto;
+import com.francisco.library_management.infraestructure.recive.BookRecive;
 
 public class DeleteBookUseCase {
 
@@ -14,7 +15,9 @@ public class DeleteBookUseCase {
 	}
 	
 	public List<BookDto> deleteBook(long id) {
+		BookRecive bookRecive = 
 		deleteBookImpl.deleteBook(id);
+		return
 	}
 	
 }

@@ -5,17 +5,17 @@ import java.util.List;
 
 public class Criteria {
 
-	private List<Filter> filters;
+	private List<Filter<?>> filters;
 	
 	public Criteria() {
 		filters = new ArrayList<>();
 	}
 	
-	public void addFilter(Filter filter) {
+	public void addFilter(Filter<?> filter) {
 		filters.add(filter);
 	}
 	
-	public List<Filter> getFilter() {
+	public List<Filter<?>> getFilter() {
 		return filters;
 	}
 }

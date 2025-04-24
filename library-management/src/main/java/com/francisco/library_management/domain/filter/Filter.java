@@ -6,11 +6,11 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class Filter {
+public class Filter<T> {
 
 	@NonNull
 	private final String field;
 	@NonNull
-	private final String value;
+	private final T value;
 	
 }

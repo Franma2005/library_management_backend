@@ -3,21 +3,26 @@ package com.francisco.library_management.infraestructure.in;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.francisco.library_management.infraestructure.dto.LibraryUserDto;
+import com.francisco.library_management.infraestructure.recive.LibraryUserRecive;
 import com.francisco.library_management.usecase.libraryUser.AllLibraryUserUseCase;
+import com.francisco.library_management.usecase.libraryUser.CreateLibraryUserUseCase;
 
 @RestController
 @RequestMapping("/libraryUser")
 public class LibraryUserController {
 
 	private AllLibraryUserUseCase allLibraryUserUseCase;
+	private CreateLibraryUserUseCase createLibraryUserUseCase;
 	
-	public LibraryUserController(AllLibraryUserUseCase allLibraryUserUseCase) {
+	public LibraryUserController(AllLibraryUserUseCase allLibraryUserUseCase, CreateLibraryUserUseCase createLibraryUserUseCase) {
 		this.allLibraryUserUseCase = allLibraryUserUseCase;
+		this.createLibraryUserUseCase = createLibraryUserUseCase;
 	}
 	
 	public ResponseEntity<List<LibraryUserDto>> getAllLibraryUser(
@@ -32,8 +37,10 @@ public class LibraryUserController {
 		);
 	}
 	
-	public ResponseEntity<LibraryUserDto> createLibraryUser() {
-		return null;
+	public ResponseEntity<LibraryUserDto> createLibraryUser(
+			@RequestBody LibraryUserRecive libraryUserRecive
+	) {
+		return createLibraryUserUseCase.createLibraryUser(libraryUserRecive);
 	}
 	
 	public ResponseEntity<LibraryUserDto> updateLibraryUser() {

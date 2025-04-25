@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
 import com.francisco.library_management.application.services.category.AllCategoriesImpl;
 import com.francisco.library_management.application.services.category.CategoryByCriteriaImpl;
@@ -13,6 +14,7 @@ import com.francisco.library_management.domain.models.Category;
 import com.francisco.library_management.infraestructure.dto.CategoryDto;
 import com.francisco.library_management.infraestructure.mapper.CategoryGroupMapper;
 
+@Component
 public class AllCategoriesUseCase {
 
 	private AllCategoriesImpl allCategoriesImpl;

@@ -3,6 +3,7 @@ package com.francisco.library_management.usecase.libraryUser;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
 import com.francisco.library_management.application.services.libraryUser.AllLibraryUsersImpl;
 import com.francisco.library_management.application.services.libraryUser.LibraryUserByCriteriaImpl;
@@ -12,6 +13,7 @@ import com.francisco.library_management.domain.models.LibraryUser;
 import com.francisco.library_management.infraestructure.dto.LibraryUserDto;
 import com.francisco.library_management.infraestructure.mapper.LibraryUserGroupMapper;
 
+@Component
 public class AllLibraryUserUseCase {
 
 	private AllLibraryUsersImpl allLibraryUserImpl;

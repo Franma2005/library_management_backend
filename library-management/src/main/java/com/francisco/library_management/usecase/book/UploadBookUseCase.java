@@ -1,6 +1,7 @@
 package com.francisco.library_management.usecase.book;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
 import com.francisco.library_management.application.ports.book.UploadBookRepository;
 import com.francisco.library_management.domain.models.Book;
@@ -8,6 +9,7 @@ import com.francisco.library_management.infraestructure.dto.BookDto;
 import com.francisco.library_management.infraestructure.mapper.BookMapper;
 import com.francisco.library_management.infraestructure.recive.BookRecive;
 
+@Component
 public class UploadBookUseCase {
 
 	private UploadBookRepository uploadBookRepository;

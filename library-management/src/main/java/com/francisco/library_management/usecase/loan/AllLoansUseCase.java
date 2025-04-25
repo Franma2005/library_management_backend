@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
 import com.francisco.library_management.application.services.loan.AllLoansImpl;
 import com.francisco.library_management.application.services.loan.LoanByCriteriaImpl;
@@ -13,6 +14,7 @@ import com.francisco.library_management.domain.models.Loan;
 import com.francisco.library_management.infraestructure.dto.LoanDto;
 import com.francisco.library_management.infraestructure.mapper.LoanGroupMapper;
 
+@Component
 public class AllLoansUseCase {
 
 	private AllLoansImpl allLoansImpl;

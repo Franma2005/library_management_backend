@@ -3,6 +3,10 @@ package com.francisco.library_management.infraestructure.in;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,6 +32,7 @@ public class BookController {
 		this.updateBookUseCase = updateBookUseCase;
 	}
 	
+	@GetMapping("/")
 	public ResponseEntity<List<BookDto>> getAllBooks(
 			@RequestParam(required = false) Long id,
 			@RequestParam(required = false) String name,
@@ -44,18 +49,21 @@ public class BookController {
 		);
 	}
 	
+	@PostMapping("/")
 	public ResponseEntity<BookDto> createBook(
 			@RequestBody BookRecive bookRecive
 	) {
 		return createBookUseCase.createBook(bookRecive);
 	}
 	
+	@PutMapping("/")
 	public ResponseEntity<BookDto> updateBook(
 			@RequestBody BookRecive bookRecive		
 	) {
 		return updateBookUseCase.uploadBook(bookRecive);
 	}
 	
+	@DeleteMapping("/")
 	public ResponseEntity<BookDto> deleteBook() {
 		return null;
 	}

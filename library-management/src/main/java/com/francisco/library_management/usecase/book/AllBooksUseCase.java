@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
 import com.francisco.library_management.application.services.book.AllBookImpl;
 import com.francisco.library_management.application.services.servicesInterfaces.book.BookByCriteria;
@@ -13,6 +14,7 @@ import com.francisco.library_management.domain.models.Book;
 import com.francisco.library_management.infraestructure.dto.BookDto;
 import com.francisco.library_management.infraestructure.mapper.BookGroupMapper;
 
+@Component
 public class AllBooksUseCase {
 
 	private AllBookImpl allBookImpl;

@@ -3,6 +3,10 @@ package com.francisco.library_management.infraestructure.in;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,12 +26,13 @@ public class LoanController {
 	private CreateLoanUseCase createLoanUseCase;
 	private UploadLoanUseCase updateLoanUseCase;
 	
-	public LoanController(AllLoansUseCase allLoansUseCase, CreateLoanUseCase createLoanUseCase, UploadLoanUseCase uploadLoanUseCase) {
+	public LoanController(AllLoansUseCase allLoansUseCase, CreateLoanUseCase createLoanUseCase, UploadLoanUseCase updateLoanUseCase) {
 		this.allLoansUseCase = allLoansUseCase;
 		this.createLoanUseCase = createLoanUseCase;
 		this.updateLoanUseCase = updateLoanUseCase;
 	}
 	
+	@GetMapping("/")
 	public ResponseEntity<List<LoanDto>> getAllLoan(
 			@RequestParam(required = false) Long idLoan,
 			@RequestParam(required = false) Long idBook,
@@ -40,18 +45,21 @@ public class LoanController {
 		);
 	}
 	
+	@PostMapping("/")
 	public ResponseEntity<LoanDto> createLoan(
 			@RequestBody LoanRecive loanRecive
 	) {
 		return createLoanUseCase.createLoan(loanRecive);
 	}
 	
+	@PutMapping("/")
 	public ResponseEntity<LoanDto> updateLoan(
 			@RequestBody LoanRecive loanRecive
 	) {
 		return updateLoanUseCase.updateLoan(loanRecive);
 	}
 	
+	@DeleteMapping("/")
 	public ResponseEntity<LoanDto> deleteLoan() {
 		return null;
 	}

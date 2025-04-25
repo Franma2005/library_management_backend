@@ -1,6 +1,7 @@
 package com.francisco.library_management.usecase.libraryUser;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
 import com.francisco.library_management.application.services.libraryUser.CreateLibraryUserImpl;
 import com.francisco.library_management.domain.models.LibraryUser;
@@ -8,6 +9,7 @@ import com.francisco.library_management.infraestructure.dto.LibraryUserDto;
 import com.francisco.library_management.infraestructure.mapper.LibraryUserMapper;
 import com.francisco.library_management.infraestructure.recive.LibraryUserRecive;
 
+@Component
 public class CreateLibraryUserUseCase {
 
 	private CreateLibraryUserImpl createLibraryUserImpl;

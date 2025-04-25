@@ -16,6 +16,7 @@ import com.francisco.library_management.infraestructure.dto.LoanDto;
 import com.francisco.library_management.infraestructure.recive.LoanRecive;
 import com.francisco.library_management.usecase.loan.AllLoansUseCase;
 import com.francisco.library_management.usecase.loan.CreateLoanUseCase;
+import com.francisco.library_management.usecase.loan.DeleteLoanUseCase;
 import com.francisco.library_management.usecase.loan.UploadLoanUseCase;
 
 @RestController
@@ -25,11 +26,13 @@ public class LoanController {
 	private AllLoansUseCase allLoansUseCase;
 	private CreateLoanUseCase createLoanUseCase;
 	private UploadLoanUseCase updateLoanUseCase;
+	private DeleteLoanUseCase deleteLoanUseCase;
 	
-	public LoanController(AllLoansUseCase allLoansUseCase, CreateLoanUseCase createLoanUseCase, UploadLoanUseCase updateLoanUseCase) {
+	public LoanController(AllLoansUseCase allLoansUseCase, CreateLoanUseCase createLoanUseCase, UploadLoanUseCase updateLoanUseCase, DeleteLoanUseCase deleteLoanUseCase) {
 		this.allLoansUseCase = allLoansUseCase;
 		this.createLoanUseCase = createLoanUseCase;
 		this.updateLoanUseCase = updateLoanUseCase;
+		this.deleteLoanUseCase = deleteLoanUseCase;
 	}
 	
 	@GetMapping("/")
@@ -60,8 +63,10 @@ public class LoanController {
 	}
 	
 	@DeleteMapping("/")
-	public ResponseEntity<LoanDto> deleteLoan() {
-		return null;
+	public ResponseEntity<LoanDto> deleteLoan(
+			@RequestParam Long id
+	) {
+		return deleteLoanUseCase.deleteLoan(id);
 	}
 	
 }

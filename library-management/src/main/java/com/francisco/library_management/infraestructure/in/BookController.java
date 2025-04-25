@@ -16,6 +16,7 @@ import com.francisco.library_management.infraestructure.dto.BookDto;
 import com.francisco.library_management.infraestructure.recive.BookRecive;
 import com.francisco.library_management.usecase.book.AllBooksUseCase;
 import com.francisco.library_management.usecase.book.CreateBookUseCase;
+import com.francisco.library_management.usecase.book.DeleteBookUseCase;
 import com.francisco.library_management.usecase.book.UploadBookUseCase;
 
 @RestController
@@ -25,11 +26,13 @@ public class BookController {
 	private AllBooksUseCase allBooksUseCase;
 	private CreateBookUseCase createBookUseCase;
 	private UploadBookUseCase updateBookUseCase;
+	private DeleteBookUseCase deleteBookUseCase;
 	
-	public BookController(AllBooksUseCase allBooksUseCase, CreateBookUseCase createBookUseCase, UploadBookUseCase updateBookUseCase) {
+	public BookController(AllBooksUseCase allBooksUseCase, CreateBookUseCase createBookUseCase, UploadBookUseCase updateBookUseCase, DeleteBookUseCase deleteBookUseCase) {
 		this.allBooksUseCase = allBooksUseCase;
 		this.createBookUseCase = createBookUseCase;
 		this.updateBookUseCase = updateBookUseCase;
+		this.deleteBookUseCase = deleteBookUseCase;
 	}
 	
 	@GetMapping("/")
@@ -64,8 +67,10 @@ public class BookController {
 	}
 	
 	@DeleteMapping("/")
-	public ResponseEntity<BookDto> deleteBook() {
-		return null;
+	public ResponseEntity<BookDto> deleteBook(
+			@RequestParam Long id
+	) {
+		return deleteBookUseCase.deleteBook(id);
 	}
 	
 }

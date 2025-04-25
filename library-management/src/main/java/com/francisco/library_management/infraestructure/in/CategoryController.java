@@ -16,6 +16,7 @@ import com.francisco.library_management.infraestructure.dto.CategoryDto;
 import com.francisco.library_management.infraestructure.recive.CategoryRecive;
 import com.francisco.library_management.usecase.category.AllCategoriesUseCase;
 import com.francisco.library_management.usecase.category.CreateCategoryUseCase;
+import com.francisco.library_management.usecase.category.DeleteCategoryUseCase;
 import com.francisco.library_management.usecase.category.UploadCategoryUseCase;
 
 @RestController
@@ -25,11 +26,13 @@ public class CategoryController {
 	private AllCategoriesUseCase allCategoriesUseCase;
 	private CreateCategoryUseCase createCategoryUseCase;
 	private UploadCategoryUseCase updateCategoryUseCase;
+	private DeleteCategoryUseCase deleteCategoryUseCase;
 	
-	public CategoryController(AllCategoriesUseCase allCategoriesUseCase, CreateCategoryUseCase createCategoryUseCase, UploadCategoryUseCase updateCategoryUseCase) {
+	public CategoryController(AllCategoriesUseCase allCategoriesUseCase, CreateCategoryUseCase createCategoryUseCase, UploadCategoryUseCase updateCategoryUseCase, DeleteCategoryUseCase deleteCategoryUseCase) {
 		this.allCategoriesUseCase = allCategoriesUseCase;
 		this.createCategoryUseCase = createCategoryUseCase;
 		this.updateCategoryUseCase = updateCategoryUseCase;
+		this.deleteCategoryUseCase = deleteCategoryUseCase;
 	}
 	
 	@GetMapping("/")
@@ -58,8 +61,10 @@ public class CategoryController {
 	}
 	
 	@DeleteMapping("/")
-	public ResponseEntity<CategoryDto> deleteCategory() {
-		return null;
+	public ResponseEntity<CategoryDto> deleteCategory(
+			@RequestParam Long id
+	) {
+		return deleteCategoryUseCase.deleteCategory(id);
 	}
 	
 }

@@ -20,7 +20,8 @@ public class DeleteCategoryUseCase {
 	private DeleteCategoryImpl deleteCategoryImpl;
 	private CategoryByCriteriaImpl categoryByCriteriaImpl;
 	
-	public DeleteCategoryUseCase(DeleteCategoryImpl deleteCategoryImpl, CategoryByCriteriaImpl categoryByCriteriaImpl) {
+	public DeleteCategoryUseCase(DeleteCategoryImpl deleteCategoryImpl,
+			CategoryByCriteriaImpl categoryByCriteriaImpl) {
 		this.deleteCategoryImpl = deleteCategoryImpl;
 		this.categoryByCriteriaImpl = categoryByCriteriaImpl;
 	}

@@ -20,7 +20,8 @@ public class AllCategoriesUseCase {
 	private AllCategoriesImpl allCategoriesImpl;
 	private CategoryByCriteriaImpl categoryByCriteriaImpl;
 	
-	public AllCategoriesUseCase(AllCategoriesImpl allCategoriesImpl, CategoryByCriteriaImpl categoryByCriteriaImpl) {
+	public AllCategoriesUseCase(AllCategoriesImpl allCategoriesImpl,
+			CategoryByCriteriaImpl categoryByCriteriaImpl) {
 		this.allCategoriesImpl = allCategoriesImpl;
 		this.categoryByCriteriaImpl = categoryByCriteriaImpl;
 	}

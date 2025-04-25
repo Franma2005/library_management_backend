@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import com.francisco.library_management.application.services.book.AllBookImpl;
-import com.francisco.library_management.application.services.servicesInterfaces.book.BookByCriteria;
+import com.francisco.library_management.application.services.book.BookByCriteriaImpl;
 import com.francisco.library_management.domain.filter.Criteria;
 import com.francisco.library_management.domain.filter.CriteriaBuilder;
 import com.francisco.library_management.domain.models.Book;
@@ -18,11 +18,11 @@ import com.francisco.library_management.infraestructure.mapper.BookGroupMapper;
 public class AllBooksUseCase {
 
 	private AllBookImpl allBookImpl;
-	private BookByCriteria bookByCriteria;
+	private BookByCriteriaImpl bookByCriteriaImpl;
 	
-	public AllBooksUseCase(AllBookImpl allBookImpl, BookByCriteria bookByCriteria) {
+	public AllBooksUseCase(AllBookImpl allBookImpl, BookByCriteriaImpl bookByCriteriaImpl) {
 		this.allBookImpl = allBookImpl;
-		this.bookByCriteria = bookByCriteria;
+		this.bookByCriteriaImpl = bookByCriteriaImpl;
 	}
 	
 	public ResponseEntity<List<BookDto>> findAllBook(
@@ -40,7 +40,7 @@ public class AllBooksUseCase {
 		List<Book> book = criteria.getFilter().isEmpty() ?
 				allBookImpl.getAllBooks()
 				:
-				bookByCriteria.getBookByCriteria(criteria);
+				bookByCriteriaImpl.getBookByCriteria(criteria);
 		
 		return ResponseEntity.ok(
 				BookGroupMapper.bookGrouptoBookGroupDto(book)

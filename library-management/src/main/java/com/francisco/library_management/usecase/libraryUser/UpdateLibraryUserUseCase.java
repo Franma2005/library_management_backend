@@ -10,11 +10,11 @@ import com.francisco.library_management.infraestructure.mapper.LibraryUserMapper
 import com.francisco.library_management.infraestructure.recive.LibraryUserRecive;
 
 @Component
-public class UploadLibraryUserUseCase {
+public class UpdateLibraryUserUseCase {
 
 	private UploadLibraryUserImpl updateLibraryUserImpl;
 	
-	public UploadLibraryUserUseCase(UploadLibraryUserImpl uploadLibraryUserImpl) {
+	public UpdateLibraryUserUseCase(UploadLibraryUserImpl uploadLibraryUserImpl) {
 		this.updateLibraryUserImpl = uploadLibraryUserImpl;
 	}
 	

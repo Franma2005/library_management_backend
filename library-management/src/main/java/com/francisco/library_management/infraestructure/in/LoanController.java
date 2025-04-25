@@ -17,7 +17,7 @@ import com.francisco.library_management.infraestructure.recive.LoanRecive;
 import com.francisco.library_management.usecase.loan.AllLoansUseCase;
 import com.francisco.library_management.usecase.loan.CreateLoanUseCase;
 import com.francisco.library_management.usecase.loan.DeleteLoanUseCase;
-import com.francisco.library_management.usecase.loan.UploadLoanUseCase;
+import com.francisco.library_management.usecase.loan.UpdateLoanUseCase;
 
 @RestController
 @RequestMapping("/loan")
@@ -25,10 +25,10 @@ public class LoanController {
 
 	private AllLoansUseCase allLoansUseCase;
 	private CreateLoanUseCase createLoanUseCase;
-	private UploadLoanUseCase updateLoanUseCase;
+	private UpdateLoanUseCase updateLoanUseCase;
 	private DeleteLoanUseCase deleteLoanUseCase;
 	
-	public LoanController(AllLoansUseCase allLoansUseCase, CreateLoanUseCase createLoanUseCase, UploadLoanUseCase updateLoanUseCase, DeleteLoanUseCase deleteLoanUseCase) {
+	public LoanController(AllLoansUseCase allLoansUseCase, CreateLoanUseCase createLoanUseCase, UpdateLoanUseCase updateLoanUseCase, DeleteLoanUseCase deleteLoanUseCase) {
 		this.allLoansUseCase = allLoansUseCase;
 		this.createLoanUseCase = createLoanUseCase;
 		this.updateLoanUseCase = updateLoanUseCase;

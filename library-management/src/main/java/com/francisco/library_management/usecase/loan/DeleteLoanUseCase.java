@@ -20,7 +20,8 @@ public class DeleteLoanUseCase {
 	private DeleteLoanImpl deleteLoanImpl;
 	private LoanByCriteriaImpl loanByCriteriaImpl;
 	
-	public DeleteLoanUseCase(DeleteLoanImpl deleteLoanImpl, LoanByCriteriaImpl loanByCriteriaImpl) {
+	public DeleteLoanUseCase(DeleteLoanImpl deleteLoanImpl,
+			LoanByCriteriaImpl loanByCriteriaImpl) {
 		this.deleteLoanImpl = deleteLoanImpl;
 		this.loanByCriteriaImpl = loanByCriteriaImpl;
 	}

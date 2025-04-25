@@ -20,7 +20,8 @@ public class DeleteLibraryUserUseCase {
 	private DeleteLibraryUserImpl deleteLibraryUserImpl;
 	private LibraryUserByCriteriaImpl libraryUserByCriteriaImpl;
 	
-	public DeleteLibraryUserUseCase(DeleteLibraryUserImpl deleteLibraryUserImpl, LibraryUserByCriteriaImpl libraryUserByCriteriaImpl) {
+	public DeleteLibraryUserUseCase(DeleteLibraryUserImpl deleteLibraryUserImpl,
+			LibraryUserByCriteriaImpl libraryUserByCriteriaImpl) {
 		this.deleteLibraryUserImpl = deleteLibraryUserImpl;
 		this.libraryUserByCriteriaImpl = libraryUserByCriteriaImpl;
 	}
@@ -29,7 +30,8 @@ public class DeleteLibraryUserUseCase {
 		Criteria criteria = new CriteriaBuilder()
 				.addFilterIfPresent("id", Optional.ofNullable(id))
 				.build();
-		List<LibraryUser> libraryUserGroup = libraryUserByCriteriaImpl.getLibraryUserByCriteria(criteria);
+		List<LibraryUser> libraryUserGroup = 
+				libraryUserByCriteriaImpl.getLibraryUserByCriteria(criteria);
 		deleteLibraryUserImpl.deleteLibraryUser(id);
 		return ResponseEntity.ok(
 				LibraryUserMapper.libraryUsertoLibraryUserDto(libraryUserGroup.get(0))

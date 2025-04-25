@@ -17,7 +17,7 @@ import com.francisco.library_management.infraestructure.recive.CategoryRecive;
 import com.francisco.library_management.usecase.category.AllCategoriesUseCase;
 import com.francisco.library_management.usecase.category.CreateCategoryUseCase;
 import com.francisco.library_management.usecase.category.DeleteCategoryUseCase;
-import com.francisco.library_management.usecase.category.UploadCategoryUseCase;
+import com.francisco.library_management.usecase.category.UpdateCategoryUseCase;
 
 @RestController
 @RequestMapping("/category")
@@ -25,10 +25,10 @@ public class CategoryController {
 
 	private AllCategoriesUseCase allCategoriesUseCase;
 	private CreateCategoryUseCase createCategoryUseCase;
-	private UploadCategoryUseCase updateCategoryUseCase;
+	private UpdateCategoryUseCase updateCategoryUseCase;
 	private DeleteCategoryUseCase deleteCategoryUseCase;
 	
-	public CategoryController(AllCategoriesUseCase allCategoriesUseCase, CreateCategoryUseCase createCategoryUseCase, UploadCategoryUseCase updateCategoryUseCase, DeleteCategoryUseCase deleteCategoryUseCase) {
+	public CategoryController(AllCategoriesUseCase allCategoriesUseCase, CreateCategoryUseCase createCategoryUseCase, UpdateCategoryUseCase updateCategoryUseCase, DeleteCategoryUseCase deleteCategoryUseCase) {
 		this.allCategoriesUseCase = allCategoriesUseCase;
 		this.createCategoryUseCase = createCategoryUseCase;
 		this.updateCategoryUseCase = updateCategoryUseCase;

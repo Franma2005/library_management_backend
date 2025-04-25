@@ -19,7 +19,8 @@ public class AllLibraryUserUseCase {
 	private AllLibraryUsersImpl allLibraryUserImpl;
 	private LibraryUserByCriteriaImpl libraryUserByCriteriaImpl;
 	
-	public AllLibraryUserUseCase(AllLibraryUsersImpl allLibraryUserImpl, LibraryUserByCriteriaImpl libraryUserByCriteriaImpl) {
+	public AllLibraryUserUseCase(AllLibraryUsersImpl allLibraryUserImpl,
+			LibraryUserByCriteriaImpl libraryUserByCriteriaImpl) {
 		this.allLibraryUserImpl = allLibraryUserImpl;
 		this.libraryUserByCriteriaImpl = libraryUserByCriteriaImpl;
 	}

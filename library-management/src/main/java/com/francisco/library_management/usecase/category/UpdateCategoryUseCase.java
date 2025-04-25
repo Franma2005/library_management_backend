@@ -10,11 +10,11 @@ import com.francisco.library_management.infraestructure.mapper.CategoryMapper;
 import com.francisco.library_management.infraestructure.recive.CategoryRecive;
 
 @Component
-public class UploadCategoryUseCase {
+public class UpdateCategoryUseCase {
 
 	private UploadCategoryImpl updateCategoryImpl;
 	
-	public UploadCategoryUseCase(UploadCategoryImpl uploadCategoryImpl) {
+	public UpdateCategoryUseCase(UploadCategoryImpl uploadCategoryImpl) {
 		this.updateCategoryImpl = uploadCategoryImpl;
 	}
 	

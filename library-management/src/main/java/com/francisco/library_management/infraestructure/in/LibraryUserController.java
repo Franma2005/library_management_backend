@@ -17,7 +17,7 @@ import com.francisco.library_management.infraestructure.recive.LibraryUserRecive
 import com.francisco.library_management.usecase.libraryUser.AllLibraryUserUseCase;
 import com.francisco.library_management.usecase.libraryUser.CreateLibraryUserUseCase;
 import com.francisco.library_management.usecase.libraryUser.DeleteLibraryUserUseCase;
-import com.francisco.library_management.usecase.libraryUser.UploadLibraryUserUseCase;
+import com.francisco.library_management.usecase.libraryUser.UpdateLibraryUserUseCase;
 
 @RestController
 @RequestMapping("/libraryUser")
@@ -25,10 +25,10 @@ public class LibraryUserController {
 
 	private AllLibraryUserUseCase allLibraryUserUseCase;
 	private CreateLibraryUserUseCase createLibraryUserUseCase;
-	private UploadLibraryUserUseCase updateLibraryUserUseCase;
+	private UpdateLibraryUserUseCase updateLibraryUserUseCase;
 	private DeleteLibraryUserUseCase deleteLibraryUserUseCase;
 	
-	public LibraryUserController(AllLibraryUserUseCase allLibraryUserUseCase, CreateLibraryUserUseCase createLibraryUserUseCase, UploadLibraryUserUseCase updateLibraryUserUseCase, DeleteLibraryUserUseCase deleteLibraryUserUseCase) {
+	public LibraryUserController(AllLibraryUserUseCase allLibraryUserUseCase, CreateLibraryUserUseCase createLibraryUserUseCase, UpdateLibraryUserUseCase updateLibraryUserUseCase, DeleteLibraryUserUseCase deleteLibraryUserUseCase) {
 		this.allLibraryUserUseCase = allLibraryUserUseCase;
 		this.createLibraryUserUseCase = createLibraryUserUseCase;
 		this.updateLibraryUserUseCase = updateLibraryUserUseCase;

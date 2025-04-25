@@ -10,11 +10,11 @@ import com.francisco.library_management.infraestructure.mapper.BookMapper;
 import com.francisco.library_management.infraestructure.recive.BookRecive;
 
 @Component
-public class UploadBookUseCase {
+public class UpdateBookUseCase {
 
 	private UploadBookRepository uploadBookRepository;
 	
-	public UploadBookUseCase(UploadBookRepository uploadBookRepository) {
+	public UpdateBookUseCase(UploadBookRepository uploadBookRepository) {
 		this.uploadBookRepository = uploadBookRepository;
 	}
 	

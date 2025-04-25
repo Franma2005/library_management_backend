@@ -10,11 +10,11 @@ import com.francisco.library_management.infraestructure.mapper.LoanMapper;
 import com.francisco.library_management.infraestructure.recive.LoanRecive;
 
 @Component
-public class UploadLoanUseCase {
+public class UpdateLoanUseCase {
 
 	private UploadLoanImpl updateLoanImpl;
 	
-	public UploadLoanUseCase(UploadLoanImpl updateLoanImpl) {
+	public UpdateLoanUseCase(UploadLoanImpl updateLoanImpl) {
 		this.updateLoanImpl = updateLoanImpl;
 	}
 	

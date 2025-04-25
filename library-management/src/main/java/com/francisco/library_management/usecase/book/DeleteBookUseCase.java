@@ -20,7 +20,8 @@ public class DeleteBookUseCase {
 	private DeleteBookImpl deleteBookImpl;
 	private BookByCriteriaImpl bookByCriteriaImpl;
 	
-	public DeleteBookUseCase(DeleteBookImpl deleteBookImpl, BookByCriteriaImpl bookByCriteriaImpl) {
+	public DeleteBookUseCase(DeleteBookImpl deleteBookImpl,
+			BookByCriteriaImpl bookByCriteriaImpl) {
 		this.deleteBookImpl = deleteBookImpl;
 		this.bookByCriteriaImpl = bookByCriteriaImpl;
 	}

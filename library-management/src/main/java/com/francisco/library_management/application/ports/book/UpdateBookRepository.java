@@ -6,5 +6,5 @@ import com.francisco.library_management.domain.models.Book;
 
 @Repository
 public interface UpdateBookRepository {
-	boolean uploadBook(Book book);
+	boolean updateBook(Book book);
 }

@@ -21,7 +21,7 @@ public class UpdateCategoryImpl implements UpdateCategory {
 	
 	@Override
 	public void updateCategory(Category category) {
-		updateCategoryRepository.uploadCategory(category);
+		updateCategoryRepository.updateCategory(category);
 		notificationRepository.notifyCategoryChanges();
 	}
 	

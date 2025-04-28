@@ -6,5 +6,5 @@ import com.francisco.library_management.domain.models.LibraryUser;
 
 @Repository
 public interface UpdateLibraryUserRepository {
-	boolean uploadLibraryUser(LibraryUser libraryUser);
+	boolean updateLibraryUser(LibraryUser libraryUser);
 }

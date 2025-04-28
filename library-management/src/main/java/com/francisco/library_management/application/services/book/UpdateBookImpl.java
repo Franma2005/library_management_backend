@@ -21,7 +21,7 @@ public class UpdateBookImpl implements UpdateBook {
 	
 	@Override
 	public void updateBook(Book book) {
-		updateBookRepository.uploadBook(book);
+		updateBookRepository.updateBook(book);
 		notificationRepository.notifyBooksChanges();
 	}
 

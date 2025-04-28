@@ -21,7 +21,7 @@ public class UpdateLoanImpl implements UpdateLoan {
 
 	@Override
 	public void updateLoan(Loan loan) {
-		updateLoanRepository.uploadLoan(loan);
+		updateLoanRepository.updateLoan(loan);
 		notificationRepository.notifyLoanChanges();
 	}
 	

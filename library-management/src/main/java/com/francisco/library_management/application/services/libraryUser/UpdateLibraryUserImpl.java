@@ -21,7 +21,7 @@ public class UpdateLibraryUserImpl implements UpdateLibraryUser {
 
 	@Override
 	public void updateLibraryUser(LibraryUser libraryUser) {
-		updateLibraryUserRepository.uploadLibraryUser(libraryUser);
+		updateLibraryUserRepository.updateLibraryUser(libraryUser);
 		notificationRepository.notifyLibraryUserChanges();
 	}
 	

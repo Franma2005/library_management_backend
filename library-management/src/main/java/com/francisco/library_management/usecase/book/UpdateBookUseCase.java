@@ -20,7 +20,7 @@ public class UpdateBookUseCase {
 	
 	public ResponseEntity<BookDto> uploadBook(BookRecive bookRecive) {
 		Book book = BookMapper.bookReciveToBook(bookRecive);
-		uploadBookRepository.uploadBook(book);
+		uploadBookRepository.updateBook(book);
 		BookDto bookDto = BookMapper.bookToBookDto(book);
 		return ResponseEntity.ok(bookDto);
 	}

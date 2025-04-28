@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.francisco.library_management.domain.models.Book;
 
 @Repository
-public interface UploadBookRepository {
+public interface UpdateBookRepository {
 	boolean uploadBook(Book book);
 }

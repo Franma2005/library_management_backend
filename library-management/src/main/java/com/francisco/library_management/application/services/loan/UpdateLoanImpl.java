@@ -2,27 +2,28 @@ package com.francisco.library_management.application.services.loan;
 
 import org.springframework.stereotype.Service;
 
-import com.francisco.library_management.application.ports.loan.CreateLoanRepository;
+import com.francisco.library_management.application.ports.loan.UpdateLoanRepository;
 import com.francisco.library_management.application.ports.notification.NotificationLoanPort;
-import com.francisco.library_management.application.services.servicesInterfaces.loan.CreateLoan;
+import com.francisco.library_management.application.services.servicesInterfaces.loan.UpdateLoan;
 import com.francisco.library_management.domain.models.Loan;
 
 @Service
-public class CreateLoanImpl implements CreateLoan {
+public class UpdateLoanImpl implements UpdateLoan {
 
-	private CreateLoanRepository createLoanRepository;
+	private UpdateLoanRepository updateLoanRepository;
 	private NotificationLoanPort notificationRepository;
 	
-	public CreateLoanImpl(CreateLoanRepository createLoanRepository,
+	public UpdateLoanImpl(UpdateLoanRepository updateLoanRepository,
 			NotificationLoanPort notificationRepository) {
-		this.createLoanRepository = createLoanRepository;
+		this.updateLoanRepository = updateLoanRepository;
 		this.notificationRepository = notificationRepository;
 	}
-	
+
 	@Override
-	public void createLoan(Loan loan) {
-		createLoanRepository.createLoan(loan);
+	public void updateLoan(Loan loan) {
+		updateLoanRepository.uploadLoan(loan);
 		notificationRepository.notifyLoanChanges();
 	}
+	
 	
 }

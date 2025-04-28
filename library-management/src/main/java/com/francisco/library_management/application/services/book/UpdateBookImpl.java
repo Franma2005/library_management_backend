@@ -2,27 +2,27 @@ package com.francisco.library_management.application.services.book;
 
 import org.springframework.stereotype.Service;
 
-import com.francisco.library_management.application.ports.book.CreateBookRepository;
+import com.francisco.library_management.application.ports.book.UpdateBookRepository;
 import com.francisco.library_management.application.ports.notification.NotificationBookPort;
-import com.francisco.library_management.application.services.servicesInterfaces.book.CreateBook;
+import com.francisco.library_management.application.services.servicesInterfaces.book.UpdateBook;
 import com.francisco.library_management.domain.models.Book;
 
 @Service
-public class CreateBookImpl implements CreateBook {
+public class UpdateBookImpl implements UpdateBook {
 
-	private CreateBookRepository createBookRepository;
+	private UpdateBookRepository updateBookRepository;
 	private NotificationBookPort notificationRepository;
 	
-	public CreateBookImpl(CreateBookRepository createBookRepository,
+	public UpdateBookImpl(UpdateBookRepository updateBookRepository,
 			NotificationBookPort notificationRepository) {
-		this.createBookRepository = createBookRepository;
+		this.updateBookRepository = updateBookRepository;
 		this.notificationRepository = notificationRepository;
 	}
 	
 	@Override
-	public void createBook(Book book) {
-		createBookRepository.createBook(book);
+	public void updateBook(Book book) {
+		updateBookRepository.uploadBook(book);
 		notificationRepository.notifyBooksChanges();
 	}
-	
+
 }

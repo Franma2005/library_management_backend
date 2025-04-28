@@ -1,9 +1,5 @@
 package com.francisco.library_management.infraestructure.out.database;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.francisco.library_management.infraestructure.out.database.entities.CategoryEntity;
-
-public interface CategoryRepositoryImpl extends JpaRepository<CategoryEntity, Long> {
+public class CategoryRepositoryImpl {
 
 }

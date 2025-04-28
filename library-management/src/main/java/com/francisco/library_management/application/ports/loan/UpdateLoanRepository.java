@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.francisco.library_management.domain.models.Loan;
 
 @Repository
-public interface UploadLoanRepository {
+public interface UpdateLoanRepository {
 	boolean uploadLoan(Loan loan);
 }

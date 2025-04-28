@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.francisco.library_management.domain.models.LibraryUser;
 
 @Repository
-public interface UploadLibraryUserRepository {
+public interface UpdateLibraryUserRepository {
 	boolean uploadLibraryUser(LibraryUser libraryUser);
 }

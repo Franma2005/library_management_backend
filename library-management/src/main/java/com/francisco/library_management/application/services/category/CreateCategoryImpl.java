@@ -13,7 +13,8 @@ public class CreateCategoryImpl implements CreateCategory {
 	private CreateCategoryRepository createCategoryRepository;
 	private NotificationCategoryPort notificationRepository;
 	
-	public CreateCategoryImpl(CreateCategoryRepository createCategoryRepository, NotificationCategoryPort notificationRepository) {
+	public CreateCategoryImpl(CreateCategoryRepository createCategoryRepository,
+			NotificationCategoryPort notificationRepository) {
 		this.createCategoryRepository = createCategoryRepository;
 		this.notificationRepository = notificationRepository;
 	}

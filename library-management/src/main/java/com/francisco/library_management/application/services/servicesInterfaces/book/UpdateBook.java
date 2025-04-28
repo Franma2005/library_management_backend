@@ -2,6 +2,6 @@ package com.francisco.library_management.application.services.servicesInterfaces
 
 import com.francisco.library_management.domain.models.Book;
 
-public interface UploadBook {
-	void uploadBook(Book book);
+public interface UpdateBook {
+	void updateBook(Book book);
 }

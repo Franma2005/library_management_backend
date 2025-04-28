@@ -3,7 +3,7 @@ package com.francisco.library_management.usecase.book;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.francisco.library_management.application.ports.book.UploadBookRepository;
+import com.francisco.library_management.application.ports.book.UpdateBookRepository;
 import com.francisco.library_management.domain.models.Book;
 import com.francisco.library_management.infraestructure.dto.BookDto;
 import com.francisco.library_management.infraestructure.mapper.BookMapper;
@@ -12,9 +12,9 @@ import com.francisco.library_management.infraestructure.recive.BookRecive;
 @Component
 public class UpdateBookUseCase {
 
-	private UploadBookRepository uploadBookRepository;
+	private UpdateBookRepository uploadBookRepository;
 	
-	public UpdateBookUseCase(UploadBookRepository uploadBookRepository) {
+	public UpdateBookUseCase(UpdateBookRepository uploadBookRepository) {
 		this.uploadBookRepository = uploadBookRepository;
 	}
 	

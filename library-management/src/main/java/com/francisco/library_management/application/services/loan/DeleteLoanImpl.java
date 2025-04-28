@@ -12,13 +12,14 @@ public class DeleteLoanImpl implements DeleteLoan {
 	private DeleteLoanRepository deleteLoanRepository;
 	private NotificationLoanPort notificationRepository;
 	
-	public DeleteLoanImpl(DeleteLoanRepository deleteLoanRepository, NotificationLoanPort notificationRepository) {
+	public DeleteLoanImpl(DeleteLoanRepository deleteLoanRepository,
+			NotificationLoanPort notificationRepository) {
 		this.deleteLoanRepository = deleteLoanRepository;
 		this.notificationRepository = notificationRepository;
 	}
 
 	@Override
-	public void deleteLoan(long id) {
+	public void deleteLoan(Long id) {
 		deleteLoanRepository.deleteLoan(id);
 		notificationRepository.notifyLoanChanges();
 	}

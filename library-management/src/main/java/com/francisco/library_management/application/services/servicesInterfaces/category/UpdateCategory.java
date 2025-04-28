@@ -2,6 +2,6 @@ package com.francisco.library_management.application.services.servicesInterfaces
 
 import com.francisco.library_management.domain.models.Category;
 
-public interface UploadCategory {
-	void uploadCategory(Category category);
+public interface UpdateCategory {
+	void updateCategory(Category category);
 }

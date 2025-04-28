@@ -12,13 +12,14 @@ public class DeleteCategoryImpl implements DeleteCategory {
 	private DeleteCategoryRepository deleteCategoryRepository;
 	private NotificationCategoryPort notificationRepository;
 	
-	public DeleteCategoryImpl(DeleteCategoryRepository deleteCategoryRepository, NotificationCategoryPort notificationRepository) {
+	public DeleteCategoryImpl(DeleteCategoryRepository deleteCategoryRepository,
+			NotificationCategoryPort notificationRepository) {
 		this.deleteCategoryRepository = deleteCategoryRepository;
 		this.notificationRepository = notificationRepository;
 	}
 	
 	@Override
-	public void deleteCategory(long id) {
+	public void deleteCategory(Long id) {
 		deleteCategoryRepository.deleteCategory(id);
 		notificationRepository.notifyCategoryChanges();
 	}

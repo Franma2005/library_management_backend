@@ -13,7 +13,8 @@ public class CreateLibraryUserImpl implements CreateLibraryUser {
 	private CreateLibraryUserRepository createLibraryUserRepository;
 	private NotificationLibraryUserPort notificationRepository;
 	
-	public CreateLibraryUserImpl(CreateLibraryUserRepository createLibraryUserRepository, NotificationLibraryUserPort notificationRepository) {
+	public CreateLibraryUserImpl(CreateLibraryUserRepository createLibraryUserRepository,
+			NotificationLibraryUserPort notificationRepository) {
 		this.createLibraryUserRepository = createLibraryUserRepository;
 		this.notificationRepository = notificationRepository;
 	}

@@ -2,6 +2,6 @@ package com.francisco.library_management.application.services.servicesInterfaces
 
 import com.francisco.library_management.domain.models.LibraryUser;
 
-public interface UploadLibraryUser {
-	void uploadLibraryUser(LibraryUser libraryUser);
+public interface UpdateLibraryUser {
+	void updateLibraryUser(LibraryUser libraryUser);
 }

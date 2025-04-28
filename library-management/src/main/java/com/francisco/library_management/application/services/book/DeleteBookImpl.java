@@ -12,13 +12,14 @@ public class DeleteBookImpl implements DeleteBook {
 	private DeleteBookRepository deleteBookRepository;
 	private NotificationBookPort notificationRepository;
 	
-	public DeleteBookImpl(DeleteBookRepository deleteBookRepository, NotificationBookPort notificationRepository) {
+	public DeleteBookImpl(DeleteBookRepository deleteBookRepository,
+			NotificationBookPort notificationRepository) {
 		this.deleteBookRepository = deleteBookRepository;
 		this.notificationRepository = notificationRepository;
 	}
 	
 	@Override
-	public void deleteBook(long id) {
+	public void deleteBook(Long id) {
 		deleteBookRepository.deleteBook(id);
 		notificationRepository.notifyBooksChanges();
 	}

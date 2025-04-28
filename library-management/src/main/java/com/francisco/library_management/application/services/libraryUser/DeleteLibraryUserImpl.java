@@ -12,13 +12,14 @@ public class DeleteLibraryUserImpl implements DeleteLibraryUser {
 	private DeleteLibraryUserRepository deleteLibraryUserRepository;
 	private NotificationLibraryUserPort notificationRepository;
 	
-	public DeleteLibraryUserImpl(DeleteLibraryUserRepository deleteLibraryUserRepository, NotificationLibraryUserPort notificationRepository) {
+	public DeleteLibraryUserImpl(DeleteLibraryUserRepository deleteLibraryUserRepository,
+			NotificationLibraryUserPort notificationRepository) {
 		this.deleteLibraryUserRepository = deleteLibraryUserRepository;
 		this.notificationRepository = notificationRepository;
 	}
 
 	@Override
-	public void deleteLibraryUser(long id) {
+	public void deleteLibraryUser(Long id) {
 		deleteLibraryUserRepository.deleteLibraryUser(id);
 		notificationRepository.notifyLibraryUserChanges();
 	}

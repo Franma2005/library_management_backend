@@ -7,12 +7,8 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class UserRegister {
+public class AuthToken {
 
-	private String username;
-	private String password;
-	private String firstName;
-	private String lastName;
-	private String country;
+	private String token;
 	
 }

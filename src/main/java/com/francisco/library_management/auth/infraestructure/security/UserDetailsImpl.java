@@ -1,0 +1,42 @@
+package com.francisco.library_management.auth.infraestructure.security;
+
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.francisco.library_management.auth.infraestructure.out.database.entities.Role;
+
+public class UserDetailsImpl implements UserDetails {
+
+	private String username;
+	private String password;
+	private Collection<? extends GrantedAuthority> authorities;
+	
+	public UserDetailsImpl(String username, String password, Role role) {
+		this.username = username;
+		this.password = password;
+		this.authorities = List.of(new SimpleGrantedAuthority(role.name()));
+	}
+	
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return authorities;
+	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

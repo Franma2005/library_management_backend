@@ -6,4 +6,5 @@ import com.francisco.library_management.auth.infraestructure.out.database.entiti
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
+	public UserEntity findByUsername(String username);
 }

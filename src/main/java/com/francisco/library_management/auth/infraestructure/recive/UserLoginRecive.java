@@ -1,4 +1,4 @@
-package com.francisco.library_management.auth.domain.model;
+package com.francisco.library_management.auth.infraestructure.recive;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -7,10 +7,9 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class UserLogin {
-	
+public class UserLoginRecive {
+
 	private String username;
 	private String password;
-	private Role role;
 	
 }

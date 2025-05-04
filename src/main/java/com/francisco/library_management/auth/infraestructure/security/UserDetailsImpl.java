@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.francisco.library_management.auth.infraestructure.out.database.entities.Role;
+import com.francisco.library_management.auth.domain.model.Role;
 
 public class UserDetailsImpl implements UserDetails {
 

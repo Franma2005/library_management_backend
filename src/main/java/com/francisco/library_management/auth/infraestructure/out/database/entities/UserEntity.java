@@ -1,5 +1,7 @@
 package com.francisco.library_management.auth.infraestructure.out.database.entities;
 
+import com.francisco.library_management.auth.domain.model.Role;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

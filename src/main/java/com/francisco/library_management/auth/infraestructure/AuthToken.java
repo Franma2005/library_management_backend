@@ -1,4 +1,4 @@
-package com.francisco.library_management.auth.domain.model;
+package com.francisco.library_management.auth.infraestructure;
 
 import lombok.Builder;
 import lombok.Getter;

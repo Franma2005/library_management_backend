@@ -1,14 +1,23 @@
 package com.francisco.library_management.auth.application.services;
 
-import com.francisco.library_management.auth.application.services.servicesInterfaces.Register;
-import com.francisco.library_management.auth.domain.model.AuthToken;
+import org.springframework.stereotype.Service;
 
+import com.francisco.library_management.auth.application.services.ports.RegisterPort;
+import com.francisco.library_management.auth.application.services.servicesInterfaces.Register;
+import com.francisco.library_management.auth.domain.model.UserRegister;
+
+@Service
 public class RegisterImpl implements Register {
 
+	private RegisterPort registerPort;
+	
+	public RegisterImpl(RegisterPort registerPort) {
+		this.registerPort = registerPort;
+	}
+	
 	@Override
-	public AuthToken register() {
-		// TODO Auto-generated method stub
-		return null;
+	public UserRegister register(UserRegister userRegister) {
+		return registerPort.register(userRegister);
 	}
 
 }

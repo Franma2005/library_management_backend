@@ -6,22 +6,43 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.francisco.library_management.auth.infraestructure.security.UserReaderForConfiguration;
 
 @Configuration
 public class ApplicationConfig {
 
-	public ApplicationConfig() {}
+	private UserReaderForConfiguration userReaderForConfiguration;
+	
+	public ApplicationConfig(UserReaderForConfiguration userReaderForConfiguration) {
+		this.userReaderForConfiguration = userReaderForConfiguration;
+	}
 	
 	@Bean
 	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
 		return authenticationConfiguration.getAuthenticationManager();
 	}
 	
+	@Bean
 	public AuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-		daoAuthenticationProvider.setUserDetailsService(null);
-		daoAuthenticationProvider.setPasswordEncoder(null);
+		daoAuthenticationProvider.setUserDetailsService(userDetailsService());
+		daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
 		return daoAuthenticationProvider;
+	}
+
+	@Bean
+	private PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+
+	@Bean
+	private UserDetailsService userDetailsService() {
+		return username -> userReaderForConfiguration.findUserDetailsImpl(username);
+				
 	}
 	
 }

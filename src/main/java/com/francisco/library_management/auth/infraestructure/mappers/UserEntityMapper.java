@@ -16,4 +16,15 @@ public class UserEntityMapper {
 				.build();
 	}
 	
+	public static UserRegister userEntityToUserRegister(UserEntity userEntity) {
+		return UserRegister.builder()
+				.username(null)
+				.password(null)
+				.firstName(null)
+				.lastName(null)
+				.country(null)
+				.role(null)
+				.build();
+	}
+	
 }

@@ -9,6 +9,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.francisco.library_management.auth.domain.model.Role;
 
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class UserDetailsImpl implements UserDetails {
 
 	private String username;
@@ -37,6 +41,5 @@ public class UserDetailsImpl implements UserDetails {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	
 }

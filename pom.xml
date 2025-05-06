@@ -82,6 +82,11 @@
     		<version>0.12.6</version>
     		<scope>runtime</scope>
 		</dependency>
+		<!-- Driver Mariadb -->
+		<dependency>
+    		<groupId>org.mariadb.jdbc</groupId>
+    		<artifactId>mariadb-java-client</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

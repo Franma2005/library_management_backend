@@ -35,12 +35,12 @@ public class ApplicationConfig {
 	}
 
 	@Bean
-	private PasswordEncoder passwordEncoder() {
+	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
 	@Bean
-	private UserDetailsService userDetailsService() {
+	public UserDetailsService userDetailsService() {
 		return username -> userReaderForConfiguration.findUserDetailsImpl(username);
 				
 	}

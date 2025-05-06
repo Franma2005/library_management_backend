@@ -1,5 +1,6 @@
 package com.francisco.library_management.auth.infraestructure.mappers;
 
+import com.francisco.library_management.auth.domain.model.UserLogin;
 import com.francisco.library_management.auth.domain.model.UserRegister;
 import com.francisco.library_management.auth.infraestructure.out.database.entities.UserEntity;
 
@@ -16,14 +17,23 @@ public class UserEntityMapper {
 				.build();
 	}
 	
+	public static UserLogin userEntityToUserLogin(UserEntity userEntity) {
+		return UserLogin.builder()
+				.username(userEntity.getUsername())
+				.password(userEntity.getPassword())
+				.role(userEntity.getRole())
+				.build();
+	}
+
+	
 	public static UserRegister userEntityToUserRegister(UserEntity userEntity) {
 		return UserRegister.builder()
-				.username(null)
-				.password(null)
-				.firstName(null)
-				.lastName(null)
-				.country(null)
-				.role(null)
+				.username(userEntity.getUsername())
+				.password(userEntity.getPassword())
+				.firstName(userEntity.getFirstName())
+				.lastName(userEntity.getLastName())
+				.country(userEntity.getCountry())
+				.role(userEntity.getRole())
 				.build();
 	}
 	

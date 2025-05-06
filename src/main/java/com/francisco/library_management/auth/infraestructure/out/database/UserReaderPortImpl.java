@@ -1,10 +1,13 @@
 package com.francisco.library_management.auth.infraestructure.out.database;
 
+import org.springframework.stereotype.Repository;
+
 import com.francisco.library_management.auth.application.services.ports.UserReaderPort;
-import com.francisco.library_management.auth.domain.model.UserRegister;
+import com.francisco.library_management.auth.domain.model.UserLogin;
 import com.francisco.library_management.auth.infraestructure.mappers.UserEntityMapper;
 import com.francisco.library_management.auth.infraestructure.out.database.entities.UserEntity;
 
+@Repository
 public class UserReaderPortImpl implements UserReaderPort {
 
 	private UserRepository userRepository;
@@ -14,12 +17,14 @@ public class UserReaderPortImpl implements UserReaderPort {
 	}
 	
 	@Override
-	public UserRegister findByUsername(String username) {
+	public UserLogin findByUsername(String username) {
 		UserEntity userEntity = userRepository.findByUsername(username);
-		if(userEntity == null)
+		if(userEntity == null) {
+			System.out.println("user entity is null");
 			return null;
-		UserRegister userRegister = UserEntityMapper.userEntityToUserRegister(userEntity);
-		return userRegister;
+		}
+		UserLogin userLogin = UserEntityMapper.userEntityToUserLogin(userEntity);
+		return userLogin;
 	}
 	
 }

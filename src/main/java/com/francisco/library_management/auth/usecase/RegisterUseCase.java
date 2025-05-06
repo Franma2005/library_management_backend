@@ -1,6 +1,7 @@
 package com.francisco.library_management.auth.usecase;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
 import com.francisco.library_management.auth.application.services.servicesInterfaces.Register;
 import com.francisco.library_management.auth.domain.model.UserRegister;
@@ -10,6 +11,7 @@ import com.francisco.library_management.auth.infraestructure.mappers.UserRegiste
 import com.francisco.library_management.auth.infraestructure.recive.UserRegisterRecive;
 import com.francisco.library_management.auth.infraestructure.security.UserDetailsImpl;
 
+@Component
 public class RegisterUseCase {
 
 	private Register register;

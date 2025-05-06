@@ -15,7 +15,7 @@ import io.jsonwebtoken.security.Keys;
 @Component
 public class JwtUtils {
 	
-	private static final String SECRET_KEY = "$2y$10$otHBGhXYt6vpQ4N.sv2kBOE96ij/S48RgqABFLrZQKzHUVDiJcRRG";
+	private static final String SECRET_KEY = "szrMiFwEW0Oo/TljcAVCdAsod8GVJuevtOk9HnZHFgirBcs9ydnbDFysmusxdckRR8IIv4C6VUAptMD1UBgnqaQqUqXdYhAb5on3toq/i8KBEs8AEGhC/mmQYDmiLupa291oMfvacAP8RAJRqZzcBeG3O7J9j9WnLMOl4Q/Kiqbu6jQANDM+qWPammlSt0wxykdf3G+6ac9Z7BJhfMpS3HhPnb4vzAsU5EWBdwOvPa+1DWx8vAj9u4+OcI6fIur5Ti82f82VxHL3d32k9zlDF67ElYQ+wCNaMenWErfELn+xTZUZIXI/VoDG2UWmOezKxSnucRNxIrCrqOtv42R7";
 	
 	public String getToken(UserDetails userDetails) {
 		return getToken(new HashMap<>(), userDetails);

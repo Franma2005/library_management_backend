@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.francisco.library_management.domain.models.Loan;
 import com.francisco.library_management.infraestructure.dto.LoanDto;
+import com.francisco.library_management.infraestructure.out.database.entities.LoanEntity;
 import com.francisco.library_management.infraestructure.recive.LoanRecive;
 
 public class LoanGroupMapper {
@@ -15,6 +16,18 @@ public class LoanGroupMapper {
 		for (LoanRecive loanRecive : loanReciveGroup) {
 			loanGroup.add(
 					LoanMapper.loanRecivetoLoan(loanRecive)
+			);
+		}
+		
+		return loanGroup;
+	}
+	
+	public static List<Loan> loanEntityGrouptoLoanGroup(List<LoanEntity> loanEntityGroup) {
+		List<Loan> loanGroup = new ArrayList<Loan>();
+		
+		for (LoanEntity loanEntity : loanEntityGroup) {
+			loanGroup.add(
+					LoanMapper.loanEntitytoLoan(loanEntity)
 			);
 		}
 		

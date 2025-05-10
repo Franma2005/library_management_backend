@@ -2,6 +2,7 @@ package com.francisco.library_management.infraestructure.mapper;
 
 import com.francisco.library_management.domain.models.Loan;
 import com.francisco.library_management.infraestructure.dto.LoanDto;
+import com.francisco.library_management.infraestructure.out.database.entities.LoanEntity;
 import com.francisco.library_management.infraestructure.recive.LoanRecive;
 
 public class LoanMapper {
@@ -15,6 +16,15 @@ public class LoanMapper {
 				.build();
 	}
 	
+	public static Loan loanEntitytoLoan(LoanEntity loanEntity) {
+		return Loan.builder()
+				.idLoan(loanEntity.getIdLoan())
+				.idBook(loanEntity.getIdBook())
+				.idLibraryUser(loanEntity.getIdLibraryUser())
+				.time(loanEntity.getTime())
+				.build();
+	}
+	
 	public static LoanDto loantoLoanDto(Loan loan) {
 		return LoanDto.builder()
 				.idLoan(loan.getIdLoan())
@@ -23,4 +33,14 @@ public class LoanMapper {
 				.time(loan.getTime())
 				.build();
 	}
+	
+	public static LoanEntity loantoLoanEntity(Loan loan) {
+		return LoanEntity.builder()
+				.idLoan(loan.getIdLoan())
+				.idBook(loan.getIdBook())
+				.idLibraryUser(loan.getIdLibraryUser())
+				.time(loan.getTime())
+				.build();
+	}
+	
 }

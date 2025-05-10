@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.francisco.library_management.domain.models.Category;
 import com.francisco.library_management.infraestructure.dto.CategoryDto;
+import com.francisco.library_management.infraestructure.out.database.entities.CategoryEntity;
 import com.francisco.library_management.infraestructure.recive.CategoryRecive;
 
 public class CategoryGroupMapper {
@@ -15,6 +16,18 @@ public class CategoryGroupMapper {
 		for (CategoryRecive categoryRecive : categoryReciveGroup) {
 			categoryGroup.add(
 					CategoryMapper.categoryRecivetoCategory(categoryRecive)
+			);
+		}
+		
+		return categoryGroup;
+	}
+	
+	public static List<Category> categoryEntityGrouptoCategoryGroup(List<CategoryEntity> categoryEntityGroup) {
+		List<Category> categoryGroup = new ArrayList<Category>();
+		
+		for (CategoryEntity categoryEntity : categoryEntityGroup) {
+			categoryGroup.add(
+					CategoryMapper.categoryEntitytoCategory(categoryEntity)
 			);
 		}
 		
@@ -33,4 +46,4 @@ public class CategoryGroupMapper {
 		return categoryDtoGroup;
 	}
 	
-}
+} 

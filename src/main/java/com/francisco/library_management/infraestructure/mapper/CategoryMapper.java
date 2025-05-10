@@ -2,6 +2,7 @@ package com.francisco.library_management.infraestructure.mapper;
 
 import com.francisco.library_management.domain.models.Category;
 import com.francisco.library_management.infraestructure.dto.CategoryDto;
+import com.francisco.library_management.infraestructure.out.database.entities.CategoryEntity;
 import com.francisco.library_management.infraestructure.recive.CategoryRecive;
 
 public class CategoryMapper {
@@ -13,8 +14,22 @@ public class CategoryMapper {
 				.build();
 	}
 	
+	public static Category categoryEntitytoCategory(CategoryEntity categoryEntity) {
+		return Category.builder()
+				.id(categoryEntity.getId())
+				.category(categoryEntity.getCategory())
+				.build();
+	}
+	
 	public static CategoryDto categorytoCategoryDto(Category category) {
 		return CategoryDto.builder()
+				.id(category.getId())
+				.category(category.getCategory())
+				.build();
+	}
+	
+	public static CategoryEntity categorytoCategoryEntity(Category category) {
+		return CategoryEntity.builder()
 				.id(category.getId())
 				.category(category.getCategory())
 				.build();

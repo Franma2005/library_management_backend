@@ -3,6 +3,8 @@ package com.francisco.library_management.infraestructure.out.database.book;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.francisco.library_management.application.ports.book.BookByCriteriaRepository;
 import com.francisco.library_management.domain.filter.Criteria;
 import com.francisco.library_management.domain.filter.Filter;
@@ -13,6 +15,7 @@ import com.francisco.library_management.infraestructure.mapper.BookGroupMapper;
 import com.francisco.library_management.infraestructure.out.database.entities.BookEntity;
 import com.francisco.library_management.infraestructure.out.database.repositories.BookRepositoryDatabase;
 
+@Repository
 public class BookByCriteriaRepositoryImpl implements BookByCriteriaRepository {
 
 	private BookRepositoryDatabase bookRepositoryDatabase;

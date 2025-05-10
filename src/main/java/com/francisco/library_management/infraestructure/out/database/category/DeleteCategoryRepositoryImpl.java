@@ -3,6 +3,8 @@ package com.francisco.library_management.infraestructure.out.database.category;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import com.francisco.library_management.application.ports.category.DeleteCategoryRepository;
 import com.francisco.library_management.domain.filter.Criteria;
 import com.francisco.library_management.domain.filter.CriteriaBuilder;
@@ -11,6 +13,7 @@ import com.francisco.library_management.infraestructure.mapper.CategoryMapper;
 import com.francisco.library_management.infraestructure.out.database.entities.CategoryEntity;
 import com.francisco.library_management.infraestructure.out.database.repositories.CategoryRepositoryDatabase;
 
+@Repository
 public class DeleteCategoryRepositoryImpl implements DeleteCategoryRepository {
 
 	private CategoryRepositoryDatabase categoryRepositoryDatabase;

@@ -28,18 +28,19 @@ public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name = "username", unique = true)
+	
+	@Column(unique = true)
 	private String username;
-	@Column(name = "password")
+	
 	private String password;
-	@Column(name = "firstName")
+	
 	private String firstName;
-	@Column(name = "lastName")
+	
 	private String lastName;
-	@Column(name = "country")
+	
 	private String country;
+	
 	@Convert(converter = RoleConverter.class)
-	@Column(name = "role")
 	private Role role;
 	
 }

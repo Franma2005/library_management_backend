@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.francisco.library_management.domain.models.Book;
 import com.francisco.library_management.infraestructure.dto.BookDto;
+import com.francisco.library_management.infraestructure.out.database.entities.BookEntity;
 import com.francisco.library_management.infraestructure.recive.BookRecive;
 
 public class BookGroupMapper {
@@ -15,6 +16,18 @@ public class BookGroupMapper {
 		for (BookRecive bookRecive : bookGroupRecive) {
 			bookGroup.add(
 					BookMapper.bookReciveToBook(bookRecive)
+			);
+		}
+		
+		return bookGroup;
+	}
+	
+	public static List<Book> bookEntityGrouptoBookEntity(List<BookEntity> bookGroupEntity) {
+		List<Book> bookGroup = new ArrayList<Book>();
+		
+		for (BookEntity bookEntity : bookGroupEntity) {
+			bookGroup.add(
+					BookMapper.bookEntityToBook(bookEntity)
 			);
 		}
 		

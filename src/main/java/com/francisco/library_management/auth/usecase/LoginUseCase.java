@@ -1,39 +1,37 @@
 package com.francisco.library_management.auth.usecase;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import com.francisco.library_management.auth.domain.model.UserLogin;
-import com.francisco.library_management.auth.infraestructure.AuthToken;
-import com.francisco.library_management.auth.infraestructure.JwtUtils;
+import com.francisco.library_management.auth.domain.model.AuthUser;
 import com.francisco.library_management.auth.infraestructure.exceptions.customExceptions.LoginException;
-import com.francisco.library_management.auth.infraestructure.mappers.UserLoginMapper;
-import com.francisco.library_management.auth.infraestructure.recive.UserLoginRecive;
+import com.francisco.library_management.auth.infraestructure.mappers.AuthUserMapper;
+import com.francisco.library_management.auth.infraestructure.recive.AuthUserRecive;
 import com.francisco.library_management.auth.infraestructure.security.UserReaderForConfiguration;
+import com.francisco.library_management.auth.infraestructure.security.jwt.AuthToken;
+import com.francisco.library_management.auth.infraestructure.security.jwt.JwtTokenGenerator;
 
 @Component
 public class LoginUseCase {
 
-	private AuthenticationManager authenticationManager;
-	private UserReaderForConfiguration userReaderForConfiguration;
-	private JwtUtils jwtUtils;
+	private final AuthenticationManager authenticationManager;
+	private final UserReaderForConfiguration userReaderForConfiguration;
+	private final JwtTokenGenerator jwtTokenGenerator;
 
 	public LoginUseCase(AuthenticationManager authenticationManager,
-			UserReaderForConfiguration userReaderForConfiguration, JwtUtils jwtUtils) {
+			UserReaderForConfiguration userReaderForConfiguration, JwtTokenGenerator jwtUtils) {
 		this.authenticationManager = authenticationManager;
 		this.userReaderForConfiguration = userReaderForConfiguration;
-		this.jwtUtils = jwtUtils;
+		this.jwtTokenGenerator = jwtUtils;
 	}
 
-	public ResponseEntity<AuthToken> login(UserLoginRecive userLoginRecive) {
+	public AuthToken login(AuthUserRecive authUserRecive) {
 		try {
-			UserLogin userLogin = mapToUserLogin(userLoginRecive);
+			AuthUser userLogin = mapToUserLogin(authUserRecive);
 			authenticate(userLogin);
-
 			UserDetails userDetails = userReaderForConfiguration.findUserDetailsImpl(userLogin.getUsername());
 			return createSuccessResponse(userDetails);
 		} catch (AuthenticationException e) {
@@ -41,22 +39,22 @@ public class LoginUseCase {
 		}
 	}
 
-	private UserLogin mapToUserLogin(UserLoginRecive userLoginRecive) {
-		return UserLoginMapper.userLoginRecivetoUserLogin(userLoginRecive);
+	private AuthUser mapToUserLogin(AuthUserRecive authUserRecive) {
+		return AuthUserMapper.userLoginRecivetoUserLogin(authUserRecive);
 	}
 
-	private void authenticate(UserLogin userLogin) {
+	private void authenticate(AuthUser userLogin) {
 		authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(userLogin.getUsername(), userLogin.getPassword()));
 	}
 	
-	private ResponseEntity<AuthToken> createSuccessResponse(UserDetails userDetails) {
-        String token = jwtUtils.getToken(userDetails);
+	private AuthToken createSuccessResponse(UserDetails userDetails) {
+        String token = jwtTokenGenerator.getToken(userDetails);
         AuthToken authToken = AuthToken.builder()
             .token(token)
             .build();
         
-        return ResponseEntity.ok(authToken);
+        return authToken;
     }
 
 }

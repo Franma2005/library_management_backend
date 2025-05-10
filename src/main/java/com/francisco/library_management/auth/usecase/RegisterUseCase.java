@@ -1,39 +1,48 @@
 package com.francisco.library_management.auth.usecase;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import com.francisco.library_management.auth.application.services.servicesInterfaces.Register;
-import com.francisco.library_management.auth.domain.model.UserRegister;
-import com.francisco.library_management.auth.infraestructure.AuthToken;
-import com.francisco.library_management.auth.infraestructure.JwtUtils;
-import com.francisco.library_management.auth.infraestructure.mappers.UserRegisterMapper;
-import com.francisco.library_management.auth.infraestructure.recive.UserRegisterRecive;
+import com.francisco.library_management.auth.domain.model.User;
+import com.francisco.library_management.auth.infraestructure.mappers.UserMapper;
+import com.francisco.library_management.auth.infraestructure.recive.UserRecive;
 import com.francisco.library_management.auth.infraestructure.security.UserDetailsImpl;
+import com.francisco.library_management.auth.infraestructure.security.jwt.AuthToken;
+import com.francisco.library_management.auth.infraestructure.security.jwt.JwtTokenGenerator;
 
 @Component
 public class RegisterUseCase {
 
-	private Register register;
-	private JwtUtils jwtUtils;
+	private final Register register;
+	private final JwtTokenGenerator jwtTokenGenerator;
 	
-	public RegisterUseCase(Register register, JwtUtils jwtUtils) {
+	public RegisterUseCase(Register register, JwtTokenGenerator jwtUtils) {
 		this.register = register;
-		this.jwtUtils = jwtUtils;
+		this.jwtTokenGenerator = jwtUtils;
 	}
 
-	public ResponseEntity<AuthToken> register(UserRegisterRecive userRegisterRecive) {
-		UserRegister userRegister = UserRegisterMapper.userRegisterRecivetoUserRegister(userRegisterRecive);
-		register.register(userRegister);
-		return ResponseEntity.ok(
-				AuthToken.builder()
+	public AuthToken register(UserRecive userRecive) {
+		User user = mapToUserRegister(userRecive);
+		register.register(user);
+		return createSuccessResponse(user);
+	}
+	
+	private User mapToUserRegister(UserRecive userRecive) {
+		return UserMapper.userRegisterRecivetoUserRegister(userRecive);
+	}
+	
+	private AuthToken createSuccessResponse(User user) {
+		return AuthToken.builder()
 				.token(
-						jwtUtils.getToken(
-								new UserDetailsImpl(userRegister.getUsername(), userRegister.getPassword(), userRegister.getRole())
+					jwtTokenGenerator.getToken(
+						new UserDetailsImpl(
+							user.getUsername(),
+							user.getPassword(),
+							user.getRole()
 						)
+					)
 				)
-				.build()
-		);
+				.build();
 	}
 	
 }

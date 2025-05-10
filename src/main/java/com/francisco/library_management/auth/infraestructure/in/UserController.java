@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.francisco.library_management.auth.infraestructure.AuthToken;
-import com.francisco.library_management.auth.infraestructure.recive.UserLoginRecive;
-import com.francisco.library_management.auth.infraestructure.recive.UserRegisterRecive;
+import com.francisco.library_management.auth.infraestructure.recive.AuthUserRecive;
+import com.francisco.library_management.auth.infraestructure.recive.UserRecive;
+import com.francisco.library_management.auth.infraestructure.security.jwt.AuthToken;
 import com.francisco.library_management.auth.usecase.LoginUseCase;
 import com.francisco.library_management.auth.usecase.RegisterUseCase;
 
@@ -26,16 +26,16 @@ public class UserController {
 	
 	@PostMapping(value = "/login")
 	public ResponseEntity<AuthToken> login(
-			@RequestBody UserLoginRecive userLoginRecive
+			@RequestBody AuthUserRecive userLoginRecive
 	) {
-		System.out.println("Hola 1");
-		return loginUseCase.login(userLoginRecive);
+		return ResponseEntity.ok(loginUseCase.login(userLoginRecive));
 	}
 	
 	@PostMapping(value = "/register")
 	public ResponseEntity<AuthToken> register(
-			@RequestBody UserRegisterRecive userRegisterRecive
+			@RequestBody UserRecive userRegisterRecive
 	) {
-		return registerUseCase.register(userRegisterRecive);
+		return ResponseEntity.ok(registerUseCase.register(userRegisterRecive));
 	}
+	
 }

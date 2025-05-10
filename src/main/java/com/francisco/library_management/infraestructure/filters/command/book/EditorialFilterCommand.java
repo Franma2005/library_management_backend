@@ -1,0 +1,25 @@
+package com.francisco.library_management.infraestructure.filters.command.book;
+
+import org.springframework.stereotype.Component;
+
+import com.francisco.library_management.domain.models.Book;
+import com.francisco.library_management.infraestructure.filters.interfaces.MyBookCommand;
+
+@Component
+public class EditorialFilterCommand implements MyBookCommand {
+
+	public EditorialFilterCommand() {}
+	
+	@Override
+	public boolean execute(Book book, Object value) {
+		boolean isEditorialValid = false;
+		
+		if(value instanceof String) {
+			String valueCast = (String) value;
+			isEditorialValid = (valueCast.equals(valueCast));
+		}
+		
+		return isEditorialValid;
+	}
+
+}

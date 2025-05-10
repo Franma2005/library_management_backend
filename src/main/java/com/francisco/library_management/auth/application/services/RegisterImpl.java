@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.francisco.library_management.auth.application.services.ports.RegisterPort;
 import com.francisco.library_management.auth.application.services.servicesInterfaces.Register;
-import com.francisco.library_management.auth.domain.model.UserRegister;
+import com.francisco.library_management.auth.domain.model.User;
 
 @Service
 public class RegisterImpl implements Register {
@@ -16,7 +16,7 @@ public class RegisterImpl implements Register {
 	}
 	
 	@Override
-	public UserRegister register(UserRegister userRegister) {
+	public User register(User userRegister) {
 		return registerPort.register(userRegister);
 	}
 

@@ -9,12 +9,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.francisco.library_management.auth.domain.model.Role;
 
-import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public class UserDetailsImpl implements UserDetails {
 
+	private static final long serialVersionUID = 1L;
+	
 	private String username;
 	private String password;
 	private Collection<? extends GrantedAuthority> authorities;
@@ -37,7 +38,6 @@ public class UserDetailsImpl implements UserDetails {
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return username;
 	}
 	

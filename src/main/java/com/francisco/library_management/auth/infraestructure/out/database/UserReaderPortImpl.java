@@ -3,9 +3,11 @@ package com.francisco.library_management.auth.infraestructure.out.database;
 import org.springframework.stereotype.Repository;
 
 import com.francisco.library_management.auth.application.services.ports.UserReaderPort;
-import com.francisco.library_management.auth.domain.model.UserLogin;
-import com.francisco.library_management.auth.infraestructure.mappers.UserEntityMapper;
+import com.francisco.library_management.auth.domain.model.AuthUser;
+import com.francisco.library_management.auth.infraestructure.exceptions.customExceptions.UserNotFoundException;
+import com.francisco.library_management.auth.infraestructure.mappers.AuthUserMapper;
 import com.francisco.library_management.auth.infraestructure.out.database.entities.UserEntity;
+import com.francisco.library_management.auth.infraestructure.out.database.repository.UserRepository;
 
 @Repository
 public class UserReaderPortImpl implements UserReaderPort {
@@ -17,14 +19,16 @@ public class UserReaderPortImpl implements UserReaderPort {
 	}
 	
 	@Override
-	public UserLogin findByUsername(String username) {
+	public AuthUser findByUsername(String username) {
 		UserEntity userEntity = userRepository.findByUsername(username);
-		if(userEntity == null) {
-			System.out.println("user entity is null");
-			return null;
-		}
-		UserLogin userLogin = UserEntityMapper.userEntityToUserLogin(userEntity);
+		if(userEntity == null)
+			throw new UserNotFoundException(username);
+		AuthUser userLogin = mapToAuthUser(userEntity);
 		return userLogin;
+	}
+	
+	private AuthUser mapToAuthUser(UserEntity userEntity) {
+		return AuthUserMapper.userEntityToAuthUser(userEntity);
 	}
 	
 }

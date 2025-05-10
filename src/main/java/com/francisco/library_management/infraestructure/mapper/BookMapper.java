@@ -3,6 +3,7 @@ package com.francisco.library_management.infraestructure.mapper;
 
 import com.francisco.library_management.domain.models.Book;
 import com.francisco.library_management.infraestructure.dto.BookDto;
+import com.francisco.library_management.infraestructure.out.database.entities.BookEntity;
 import com.francisco.library_management.infraestructure.recive.BookRecive;
 
 public class BookMapper {
@@ -17,8 +18,28 @@ public class BookMapper {
 				.build();
 	}
 	
+	public static Book bookEntityToBook(BookEntity bookEntity) {
+		return Book.builder()
+				.id(0)
+				.name(bookEntity.getName())
+				.author(bookEntity.getAuthor())
+				.editorial(bookEntity.getEditorial())
+				.category(bookEntity.getCategory())
+				.build();
+	}
+	
 	public static BookDto bookToBookDto(Book book) {
 		return BookDto.builder()
+				.id(book.getId())
+				.name(book.getName())
+				.author(book.getAuthor())
+				.editorial(book.getEditorial())
+				.category(book.getCategory())
+				.build();
+	}
+	
+	public static BookEntity bookToBookEntity(Book book) {
+		return BookEntity.builder()
 				.id(book.getId())
 				.name(book.getName())
 				.author(book.getAuthor())

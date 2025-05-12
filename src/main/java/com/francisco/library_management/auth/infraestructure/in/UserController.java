@@ -12,6 +12,8 @@ import com.francisco.library_management.auth.infraestructure.security.jwt.AuthTo
 import com.francisco.library_management.auth.usecase.LoginUseCase;
 import com.francisco.library_management.auth.usecase.RegisterUseCase;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/auth")
 public class UserController {
@@ -26,14 +28,14 @@ public class UserController {
 	
 	@PostMapping(value = "/login")
 	public ResponseEntity<AuthToken> login(
-			@RequestBody AuthUserRecive userLoginRecive
+			@Valid @RequestBody AuthUserRecive userLoginRecive
 	) {
 		return ResponseEntity.ok(loginUseCase.login(userLoginRecive));
 	}
 	
 	@PostMapping(value = "/register")
 	public ResponseEntity<AuthToken> register(
-			@RequestBody UserRecive userRegisterRecive
+			@Valid @RequestBody UserRecive userRegisterRecive
 	) {
 		return ResponseEntity.ok(registerUseCase.register(userRegisterRecive));
 	}

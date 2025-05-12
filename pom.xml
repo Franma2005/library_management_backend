@@ -87,6 +87,25 @@
     		<groupId>org.mariadb.jdbc</groupId>
     		<artifactId>mariadb-java-client</artifactId>
 		</dependency>
+		<!-- Spring Boot Configuration Processor -->
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-configuration-processor</artifactId>
+    	</dependency>
+    	<!-- Jakarta e Hibernate Validation -->
+    	<dependency>
+    		<groupId>org.hibernate.validator</groupId>
+    		<artifactId>hibernate-validator</artifactId>
+		</dependency>
+    	<dependency>
+    		<groupId>jakarta.validation</groupId>
+    		<artifactId>jakarta.validation-api</artifactId>
+    	</dependency>
+    	<dependency>
+    		<groupId>jakarta.el</groupId>
+    		<artifactId>jakarta.el-api</artifactId>
+    		<version>6.0.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>

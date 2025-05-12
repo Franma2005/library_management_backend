@@ -9,9 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.francisco.library_management.auth.domain.model.Role;
 
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor
 public class UserDetailsImpl implements UserDetails {
 
 	private static final long serialVersionUID = 1L;

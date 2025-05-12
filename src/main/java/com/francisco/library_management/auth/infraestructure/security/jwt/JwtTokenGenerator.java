@@ -6,23 +6,25 @@ import java.util.Map;
 
 import javax.crypto.SecretKey;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
+
+import com.francisco.library_management.auth.infraestructure.configuration.JwtProperties;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
-import lombok.Getter;
-import lombok.Setter;
 
-@ConfigurationProperties(prefix = "jwt.secret")
-@Getter
-@Setter
+@Component
 public class JwtTokenGenerator {
 	
 	private String key;
 	private SecretKey secretKey;
+	
+	public JwtTokenGenerator(JwtProperties jwtProperties) {
+		key = jwtProperties.getKey();
+	}
 	
 	@PostConstruct
 	public void init() {

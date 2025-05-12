@@ -1,6 +1,5 @@
 package com.francisco.library_management.auth.infraestructure.out.database.entities;
 
-import com.francisco.library_management.auth.RoleConverter;
 import com.francisco.library_management.auth.domain.model.Role;
 
 import jakarta.persistence.Column;

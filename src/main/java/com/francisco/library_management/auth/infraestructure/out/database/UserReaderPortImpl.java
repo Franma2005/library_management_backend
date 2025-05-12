@@ -2,9 +2,8 @@ package com.francisco.library_management.auth.infraestructure.out.database;
 
 import org.springframework.stereotype.Repository;
 
-import com.francisco.library_management.auth.application.services.ports.UserReaderPort;
+import com.francisco.library_management.auth.application.ports.UserReaderPort;
 import com.francisco.library_management.auth.domain.model.AuthUser;
-import com.francisco.library_management.auth.infraestructure.exceptions.customExceptions.UserNotFoundException;
 import com.francisco.library_management.auth.infraestructure.mappers.AuthUserMapper;
 import com.francisco.library_management.auth.infraestructure.out.database.entities.UserEntity;
 import com.francisco.library_management.auth.infraestructure.out.database.repository.UserRepository;
@@ -22,9 +21,9 @@ public class UserReaderPortImpl implements UserReaderPort {
 	public AuthUser findByUsername(String username) {
 		UserEntity userEntity = userRepository.findByUsername(username);
 		if(userEntity == null)
-			throw new UserNotFoundException(username);
-		AuthUser userLogin = mapToAuthUser(userEntity);
-		return userLogin;
+			return null;
+		AuthUser authUser = mapToAuthUser(userEntity);
+		return authUser;
 	}
 	
 	private AuthUser mapToAuthUser(UserEntity userEntity) {

@@ -1,5 +1,6 @@
 package com.francisco.library_management.auth.infraestructure.recive;
 
+import io.micrometer.common.lang.NonNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class AuthUserRecive {
 
-	private String username;
-	private String password;
+	@NonNull private String username;
+	@NonNull private String password;
 	
 }

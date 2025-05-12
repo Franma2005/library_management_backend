@@ -2,7 +2,7 @@ package com.francisco.library_management.auth.application.services;
 
 import org.springframework.stereotype.Service;
 
-import com.francisco.library_management.auth.application.services.ports.RegisterPort;
+import com.francisco.library_management.auth.application.ports.RegisterPort;
 import com.francisco.library_management.auth.application.services.servicesInterfaces.Register;
 import com.francisco.library_management.auth.domain.model.User;
 

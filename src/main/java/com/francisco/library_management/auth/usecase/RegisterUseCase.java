@@ -23,6 +23,7 @@ public class RegisterUseCase {
 
 	public AuthToken register(UserRecive userRecive) {
 		User user = mapToUserRegister(userRecive);
+		
 		register.register(user);
 		return createSuccessResponse(user);
 	}

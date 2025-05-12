@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-import com.francisco.library_management.auth.infraestructure.security.jwt.JwtTokenGenerator;
+import com.francisco.library_management.auth.infraestructure.configuration.JwtProperties;
 
 @SpringBootApplication
-@EnableConfigurationProperties(JwtTokenGenerator.class)
+@EnableConfigurationProperties(JwtProperties.class)
 public class LibraryManagementApplication {
 
 	public static void main(String[] args) {

@@ -1,9 +1,9 @@
-package com.francisco.library_management.infraestructure.filters.command.category;
+package com.francisco.library_management.crud.infraestructure.filters.command.category;
 
 import org.springframework.stereotype.Component;
 
-import com.francisco.library_management.domain.models.Category;
-import com.francisco.library_management.infraestructure.filters.interfaces.MyCategoryCommand;
+import com.francisco.library_management.crud.domain.models.Category;
+import com.francisco.library_management.crud.infraestructure.filters.interfaces.MyCategoryCommand;
 
 @Component("idFilterCommandCategory")
 public class IdFilterCommand implements MyCategoryCommand {

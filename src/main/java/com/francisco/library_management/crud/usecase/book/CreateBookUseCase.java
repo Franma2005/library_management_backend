@@ -1,13 +1,12 @@
-package com.francisco.library_management.usecase.book;
+package com.francisco.library_management.crud.usecase.book;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.francisco.library_management.application.services.book.CreateBookImpl;
-import com.francisco.library_management.domain.models.Book;
-import com.francisco.library_management.infraestructure.dto.BookDto;
-import com.francisco.library_management.infraestructure.mapper.BookMapper;
-import com.francisco.library_management.infraestructure.recive.BookRecive;
+import com.francisco.library_management.crud.application.services.book.CreateBookImpl;
+import com.francisco.library_management.crud.domain.models.Book;
+import com.francisco.library_management.crud.infraestructure.dto.BookDto;
+import com.francisco.library_management.crud.infraestructure.mapper.BookMapper;
+import com.francisco.library_management.crud.infraestructure.recive.BookRecive;
 
 @Component
 public class CreateBookUseCase {
@@ -18,11 +17,11 @@ public class CreateBookUseCase {
 		this.createBookImpl = createBookImpl;
 	}
 
-	public ResponseEntity<BookDto> createBook(BookRecive bookRecive) {
+	public BookDto createBook(BookRecive bookRecive) {
 		Book book = BookMapper.bookReciveToBook(bookRecive);
 		createBookImpl.createBook(book);
 		BookDto bookDto = BookMapper.bookToBookDto(book);
-		return ResponseEntity.ok(bookDto);
+		return bookDto;
 	}
 	
 }

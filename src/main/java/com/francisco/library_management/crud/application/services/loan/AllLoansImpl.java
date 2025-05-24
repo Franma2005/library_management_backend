@@ -1,12 +1,12 @@
-package com.francisco.library_management.application.services.loan;
+package com.francisco.library_management.crud.application.services.loan;
 
 import java.util.List;
 
+import com.francisco.library_management.crud.domain.models.Loan;
 import org.springframework.stereotype.Service;
 
-import com.francisco.library_management.application.ports.loan.AllLoansRepository;
-import com.francisco.library_management.application.services.servicesInterfaces.loan.AllLoans;
-import com.francisco.library_management.domain.models.Loan;
+import com.francisco.library_management.crud.application.ports.loan.AllLoansRepository;
+import com.francisco.library_management.crud.application.services.servicesInterfaces.loan.AllLoans;
 
 @Service
 public class AllLoansImpl implements AllLoans {

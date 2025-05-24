@@ -1,12 +1,12 @@
-package com.francisco.library_management.application.services.libraryUser;
+package com.francisco.library_management.crud.application.services.libraryUser;
 
 import java.util.List;
 
+import com.francisco.library_management.crud.domain.models.LibraryUser;
 import org.springframework.stereotype.Service;
 
-import com.francisco.library_management.application.ports.libraryUser.AllLibraryUsersRepository;
-import com.francisco.library_management.application.services.servicesInterfaces.libraryUser.AllLibraryUsers;
-import com.francisco.library_management.domain.models.LibraryUser;
+import com.francisco.library_management.crud.application.ports.libraryUser.AllLibraryUsersRepository;
+import com.francisco.library_management.crud.application.services.servicesInterfaces.libraryUser.AllLibraryUsers;
 
 @Service
 public class AllLibraryUsersImpl implements AllLibraryUsers {

@@ -1,13 +1,13 @@
-package com.francisco.library_management.application.services.category;
+package com.francisco.library_management.crud.application.services.category;
 
 import java.util.List;
 
+import com.francisco.library_management.crud.domain.models.Category;
 import org.springframework.stereotype.Service;
 
-import com.francisco.library_management.application.ports.category.CategoryByCriteriaRepository;
-import com.francisco.library_management.application.services.servicesInterfaces.category.CategoryByCriteria;
+import com.francisco.library_management.crud.application.ports.category.CategoryByCriteriaRepository;
+import com.francisco.library_management.crud.application.services.servicesInterfaces.category.CategoryByCriteria;
 import com.francisco.library_management.crud.domain.filter.Criteria;
-import com.francisco.library_management.domain.models.Category;
 
 @Service
 public class CategoryByCriteriaImpl implements CategoryByCriteria {

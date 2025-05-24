@@ -1,18 +1,17 @@
-package com.francisco.library_management.usecase.loan;
+package com.francisco.library_management.crud.usecase.loan;
 
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.francisco.library_management.application.services.loan.AllLoansImpl;
-import com.francisco.library_management.application.services.loan.LoanByCriteriaImpl;
+import com.francisco.library_management.crud.application.services.loan.AllLoansImpl;
+import com.francisco.library_management.crud.application.services.loan.LoanByCriteriaImpl;
 import com.francisco.library_management.crud.domain.filter.Criteria;
 import com.francisco.library_management.crud.domain.filter.CriteriaBuilder;
-import com.francisco.library_management.domain.models.Loan;
-import com.francisco.library_management.infraestructure.dto.LoanDto;
-import com.francisco.library_management.infraestructure.mapper.LoanGroupMapper;
+import com.francisco.library_management.crud.domain.models.Loan;
+import com.francisco.library_management.crud.infraestructure.dto.LoanDto;
+import com.francisco.library_management.crud.infraestructure.mapper.LoanGroupMapper;
 
 @Component
 public class AllLoansUseCase {
@@ -25,7 +24,7 @@ public class AllLoansUseCase {
 		this.loanByCriteriaImpl = loanByCriteriaImpl;
 	}
 	
-	public ResponseEntity<List<LoanDto>> findAllLoan(
+	public List<LoanDto> findAllLoan(
 			Long idLoan,
 			Long idBook,
 			Long idLibraryUser
@@ -41,6 +40,6 @@ public class AllLoansUseCase {
 				:
 				loanByCriteriaImpl.getLoanByCriteria(criteria);
 		
-		return ResponseEntity.ok(LoanGroupMapper.loanGrouptoLoanDtoGroup(loanGroup));
+		return LoanGroupMapper.loanGrouptoLoanDtoGroup(loanGroup);
 	}
 }

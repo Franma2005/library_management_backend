@@ -1,9 +1,9 @@
-package com.francisco.library_management.infraestructure.filters.command.libraryUser;
+package com.francisco.library_management.crud.infraestructure.filters.command.libraryUser;
 
 import org.springframework.stereotype.Component;
 
-import com.francisco.library_management.domain.models.LibraryUser;
-import com.francisco.library_management.infraestructure.filters.interfaces.MyLibraryUserCommand;
+import com.francisco.library_management.crud.domain.models.LibraryUser;
+import com.francisco.library_management.crud.infraestructure.filters.interfaces.MyLibraryUserCommand;
 
 @Component("nameFilterCommandCategory")
 public class NameFilterCommand implements MyLibraryUserCommand {
@@ -21,4 +21,5 @@ public class NameFilterCommand implements MyLibraryUserCommand {
 		
 		return isNameValid;
 	}
+	
 }

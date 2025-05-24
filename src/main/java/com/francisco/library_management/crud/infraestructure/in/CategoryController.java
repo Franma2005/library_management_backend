@@ -1,4 +1,4 @@
-package com.francisco.library_management.infraestructure.in;
+package com.francisco.library_management.crud.infraestructure.in;
 
 import java.util.List;
 
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.francisco.library_management.infraestructure.dto.CategoryDto;
-import com.francisco.library_management.infraestructure.recive.CategoryRecive;
-import com.francisco.library_management.usecase.category.AllCategoriesUseCase;
-import com.francisco.library_management.usecase.category.CreateCategoryUseCase;
-import com.francisco.library_management.usecase.category.DeleteCategoryUseCase;
-import com.francisco.library_management.usecase.category.UpdateCategoryUseCase;
+import com.francisco.library_management.crud.infraestructure.dto.CategoryDto;
+import com.francisco.library_management.crud.infraestructure.recive.CategoryRecive;
+import com.francisco.library_management.crud.usecase.category.AllCategoriesUseCase;
+import com.francisco.library_management.crud.usecase.category.CreateCategoryUseCase;
+import com.francisco.library_management.crud.usecase.category.DeleteCategoryUseCase;
+import com.francisco.library_management.crud.usecase.category.UpdateCategoryUseCase;
 
 @RestController
 @RequestMapping("/category")
@@ -40,9 +40,11 @@ public class CategoryController {
 			@RequestParam(required = false) Long id,
 			@RequestParam(required = false) String category
 	) {
-		return allCategoriesUseCase.findAllCategories(
-				id,
-				category
+		return ResponseEntity.ok(
+				allCategoriesUseCase.findAllCategories(
+						id,
+						category
+				)
 		);
 	}
 	
@@ -50,21 +52,27 @@ public class CategoryController {
 	public ResponseEntity<CategoryDto> createCategory(
 			@RequestBody CategoryRecive categoryRecive
 	) {
-		return createCategoryUseCase.createCategory(categoryRecive);
+		return ResponseEntity.ok(
+				createCategoryUseCase.createCategory(categoryRecive)
+		);
 	}
 	
 	@PutMapping("/")
 	public ResponseEntity<CategoryDto> updateCategory(
 			@RequestBody CategoryRecive categoryRecive		
 	) {
-		return updateCategoryUseCase.updateCategory(categoryRecive);
+		return ResponseEntity.ok(
+				updateCategoryUseCase.updateCategory(categoryRecive)
+		);
 	}
 	
 	@DeleteMapping("/")
 	public ResponseEntity<CategoryDto> deleteCategory(
 			@RequestParam Long id
 	) {
-		return deleteCategoryUseCase.deleteCategory(id);
+		return ResponseEntity.ok(
+				deleteCategoryUseCase.deleteCategory(id)
+		);
 	}
 	
 }

@@ -1,9 +1,9 @@
-package com.francisco.library_management.infraestructure.filters.command.book;
+package com.francisco.library_management.crud.infraestructure.filters.command.book;
 
 import org.springframework.stereotype.Component;
 
-import com.francisco.library_management.domain.models.Book;
-import com.francisco.library_management.infraestructure.filters.interfaces.MyBookCommand;
+import com.francisco.library_management.crud.domain.models.Book;
+import com.francisco.library_management.crud.infraestructure.filters.interfaces.MyBookCommand;
 
 @Component
 public class EditorialFilterCommand implements MyBookCommand {

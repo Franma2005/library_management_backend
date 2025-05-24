@@ -1,9 +1,9 @@
-package com.francisco.library_management.infraestructure.mapper;
+package com.francisco.library_management.crud.infraestructure.mapper;
 
-import com.francisco.library_management.domain.models.Loan;
-import com.francisco.library_management.infraestructure.dto.LoanDto;
-import com.francisco.library_management.infraestructure.out.database.entities.LoanEntity;
-import com.francisco.library_management.infraestructure.recive.LoanRecive;
+import com.francisco.library_management.crud.domain.models.Loan;
+import com.francisco.library_management.crud.infraestructure.dto.LoanDto;
+import com.francisco.library_management.crud.infraestructure.out.database.entities.LoanEntity;
+import com.francisco.library_management.crud.infraestructure.recive.LoanRecive;
 
 public class LoanMapper {
 

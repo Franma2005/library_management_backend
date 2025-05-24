@@ -1,10 +1,9 @@
-package com.francisco.library_management.infraestructure.mapper;
+package com.francisco.library_management.crud.infraestructure.mapper;
 
-
-import com.francisco.library_management.domain.models.Book;
-import com.francisco.library_management.infraestructure.dto.BookDto;
-import com.francisco.library_management.infraestructure.out.database.entities.BookEntity;
-import com.francisco.library_management.infraestructure.recive.BookRecive;
+import com.francisco.library_management.crud.domain.models.Book;
+import com.francisco.library_management.crud.infraestructure.dto.BookDto;
+import com.francisco.library_management.crud.infraestructure.out.database.entities.BookEntity;
+import com.francisco.library_management.crud.infraestructure.recive.BookRecive;
 
 public class BookMapper {
 

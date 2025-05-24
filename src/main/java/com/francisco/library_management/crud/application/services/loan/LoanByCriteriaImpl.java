@@ -1,13 +1,13 @@
-package com.francisco.library_management.application.services.loan;
+package com.francisco.library_management.crud.application.services.loan;
 
 import java.util.List;
 
+import com.francisco.library_management.crud.domain.models.Loan;
 import org.springframework.stereotype.Service;
 
-import com.francisco.library_management.application.ports.loan.LoanByCriteriaRepository;
-import com.francisco.library_management.application.services.servicesInterfaces.loan.LoanByCriteria;
+import com.francisco.library_management.crud.application.ports.loan.LoanByCriteriaRepository;
+import com.francisco.library_management.crud.application.services.servicesInterfaces.loan.LoanByCriteria;
 import com.francisco.library_management.crud.domain.filter.Criteria;
-import com.francisco.library_management.domain.models.Loan;
 
 @Service
 public class LoanByCriteriaImpl implements LoanByCriteria {

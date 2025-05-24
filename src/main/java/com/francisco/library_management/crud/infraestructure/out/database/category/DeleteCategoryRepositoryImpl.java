@@ -1,17 +1,17 @@
-package com.francisco.library_management.infraestructure.out.database.category;
+package com.francisco.library_management.crud.infraestructure.out.database.category;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import com.francisco.library_management.application.ports.category.DeleteCategoryRepository;
+import com.francisco.library_management.crud.application.ports.category.DeleteCategoryRepository;
 import com.francisco.library_management.crud.domain.filter.Criteria;
 import com.francisco.library_management.crud.domain.filter.CriteriaBuilder;
-import com.francisco.library_management.domain.models.Category;
-import com.francisco.library_management.infraestructure.mapper.CategoryMapper;
-import com.francisco.library_management.infraestructure.out.database.entities.CategoryEntity;
-import com.francisco.library_management.infraestructure.out.database.repositories.CategoryRepositoryDatabase;
+import com.francisco.library_management.crud.domain.models.Category;
+import com.francisco.library_management.crud.infraestructure.mapper.CategoryMapper;
+import com.francisco.library_management.crud.infraestructure.out.database.entities.CategoryEntity;
+import com.francisco.library_management.crud.infraestructure.out.database.repositories.CategoryRepositoryDatabase;
 
 @Repository
 public class DeleteCategoryRepositoryImpl implements DeleteCategoryRepository {

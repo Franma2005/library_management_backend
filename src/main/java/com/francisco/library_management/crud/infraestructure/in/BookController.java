@@ -1,4 +1,4 @@
-package com.francisco.library_management.infraestructure.in;
+package com.francisco.library_management.crud.infraestructure.in;
 
 import java.util.List;
 
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.francisco.library_management.infraestructure.dto.BookDto;
-import com.francisco.library_management.infraestructure.recive.BookRecive;
-import com.francisco.library_management.usecase.book.AllBooksUseCase;
-import com.francisco.library_management.usecase.book.CreateBookUseCase;
-import com.francisco.library_management.usecase.book.DeleteBookUseCase;
-import com.francisco.library_management.usecase.book.UpdateBookUseCase;
+import com.francisco.library_management.crud.infraestructure.dto.BookDto;
+import com.francisco.library_management.crud.infraestructure.recive.BookRecive;
+import com.francisco.library_management.crud.usecase.book.AllBooksUseCase;
+import com.francisco.library_management.crud.usecase.book.CreateBookUseCase;
+import com.francisco.library_management.crud.usecase.book.DeleteBookUseCase;
+import com.francisco.library_management.crud.usecase.book.UpdateBookUseCase;
 
 @RestController
 @RequestMapping("/book")
@@ -44,34 +44,41 @@ public class BookController {
 			@RequestParam(required = false) String editorial,
 			@RequestParam(required = false) Long category
 	) {
-		return allBooksUseCase.findAllBook(
+		return ResponseEntity.ok(
+			allBooksUseCase.findAllBook(
 				id,
 				name,
 				author,
 				editorial,
 				category
-		);
+		));
 	}
 	
 	@PostMapping("/")
 	public ResponseEntity<BookDto> createBook(
 			@RequestBody BookRecive bookRecive
 	) {
-		return createBookUseCase.createBook(bookRecive);
+		return ResponseEntity.ok(
+				createBookUseCase.createBook(bookRecive)
+		);
 	}
 	
 	@PutMapping("/")
 	public ResponseEntity<BookDto> updateBook(
 			@RequestBody BookRecive bookRecive		
 	) {
-		return updateBookUseCase.uploadBook(bookRecive);
+		return ResponseEntity.ok(
+				updateBookUseCase.uploadBook(bookRecive)
+		);
 	}
 	
 	@DeleteMapping("/")
 	public ResponseEntity<BookDto> deleteBook(
 			@RequestParam Long id
 	) {
-		return deleteBookUseCase.deleteBook(id);
+		return ResponseEntity.ok(
+				deleteBookUseCase.deleteBook(id)
+		);
 	}
 	
 }

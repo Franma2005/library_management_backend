@@ -1,12 +1,14 @@
-package com.francisco.library_management.application.ports.libraryUser;
+package com.francisco.library_management.crud.application.ports.libraryUser;
 
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.francisco.library_management.domain.models.LibraryUser;
+import com.francisco.library_management.crud.domain.models.LibraryUser;
 
 @Repository
 public interface AllLibraryUsersRepository {
-	List<LibraryUser> getAllLibraryUsers();
+	
+	public List<LibraryUser> getAllLibraryUsers();
+	
 }

@@ -1,15 +1,15 @@
-package com.francisco.library_management.infraestructure.filters.command.registry;
+package com.francisco.library_management.crud.infraestructure.filters.command.registry;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
-import com.francisco.library_management.infraestructure.exceptions.customExceptions.CommandNotFoundException;
-import com.francisco.library_management.infraestructure.filters.command.libraryUser.IdFilterCommand;
-import com.francisco.library_management.infraestructure.filters.command.libraryUser.NameFilterCommand;
-import com.francisco.library_management.infraestructure.filters.command.libraryUser.SurnameFilterCommand;
-import com.francisco.library_management.infraestructure.filters.interfaces.MyLibraryUserCommand;
+import com.francisco.library_management.crud.infraestructure.exceptions.customExceptions.CommandNotFoundException;
+import com.francisco.library_management.crud.infraestructure.filters.command.libraryUser.IdFilterCommand;
+import com.francisco.library_management.crud.infraestructure.filters.command.libraryUser.NameFilterCommand;
+import com.francisco.library_management.crud.infraestructure.filters.command.libraryUser.SurnameFilterCommand;
+import com.francisco.library_management.crud.infraestructure.filters.interfaces.MyLibraryUserCommand;
 
 @Component
 public class LibraryUserFilterCommandRegistry {

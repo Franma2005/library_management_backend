@@ -1,18 +1,17 @@
-package com.francisco.library_management.usecase.category;
+package com.francisco.library_management.crud.usecase.category;
 
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.francisco.library_management.application.services.category.CategoryByCriteriaImpl;
-import com.francisco.library_management.application.services.category.DeleteCategoryImpl;
+import com.francisco.library_management.crud.application.services.category.CategoryByCriteriaImpl;
+import com.francisco.library_management.crud.application.services.category.DeleteCategoryImpl;
 import com.francisco.library_management.crud.domain.filter.Criteria;
 import com.francisco.library_management.crud.domain.filter.CriteriaBuilder;
-import com.francisco.library_management.domain.models.Category;
-import com.francisco.library_management.infraestructure.dto.CategoryDto;
-import com.francisco.library_management.infraestructure.mapper.CategoryMapper;
+import com.francisco.library_management.crud.domain.models.Category;
+import com.francisco.library_management.crud.infraestructure.dto.CategoryDto;
+import com.francisco.library_management.crud.infraestructure.mapper.CategoryMapper;
 
 @Component
 public class DeleteCategoryUseCase {
@@ -26,15 +25,13 @@ public class DeleteCategoryUseCase {
 		this.categoryByCriteriaImpl = categoryByCriteriaImpl;
 	}
 	
-	public ResponseEntity<CategoryDto> deleteCategory(Long id) {
+	public CategoryDto deleteCategory(Long id) {
 		Criteria criteria = new CriteriaBuilder()
 				.addFilterIfPresent("id", Optional.ofNullable(id))
 				.build();
 		List<Category> categoryGroup = categoryByCriteriaImpl.getCategoryByCriteria(criteria);
 		deleteCategoryImpl.deleteCategory(id);
-		return ResponseEntity.ok(
-				CategoryMapper.categorytoCategoryDto(categoryGroup.get(0))
-		);
+		return CategoryMapper.categorytoCategoryDto(categoryGroup.get(0));
 	}
 	
 }

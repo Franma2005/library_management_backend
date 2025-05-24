@@ -1,4 +1,4 @@
-package com.francisco.library_management.infraestructure.in;
+package com.francisco.library_management.crud.infraestructure.in;
 
 import java.util.List;
 
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.francisco.library_management.infraestructure.dto.LibraryUserDto;
-import com.francisco.library_management.infraestructure.recive.LibraryUserRecive;
-import com.francisco.library_management.usecase.libraryUser.AllLibraryUserUseCase;
-import com.francisco.library_management.usecase.libraryUser.CreateLibraryUserUseCase;
-import com.francisco.library_management.usecase.libraryUser.DeleteLibraryUserUseCase;
-import com.francisco.library_management.usecase.libraryUser.UpdateLibraryUserUseCase;
+import com.francisco.library_management.crud.infraestructure.dto.LibraryUserDto;
+import com.francisco.library_management.crud.infraestructure.recive.LibraryUserRecive;
+import com.francisco.library_management.crud.usecase.libraryUser.AllLibraryUserUseCase;
+import com.francisco.library_management.crud.usecase.libraryUser.CreateLibraryUserUseCase;
+import com.francisco.library_management.crud.usecase.libraryUser.DeleteLibraryUserUseCase;
+import com.francisco.library_management.crud.usecase.libraryUser.UpdateLibraryUserUseCase;
 
 @RestController
 @RequestMapping("/libraryUser")
@@ -41,10 +41,12 @@ public class LibraryUserController {
 			@RequestParam(required = false) String name,
 			@RequestParam(required = false) String surname
 	) {
-		return allLibraryUserUseCase.findLibraryUser(
-				id,
-				name,
-				surname
+		return ResponseEntity.ok(
+				allLibraryUserUseCase.findLibraryUser(
+						id,
+						name,
+						surname
+				)
 		);
 	}
 	
@@ -52,21 +54,27 @@ public class LibraryUserController {
 	public ResponseEntity<LibraryUserDto> createLibraryUser(
 			@RequestBody LibraryUserRecive libraryUserRecive
 	) {
-		return createLibraryUserUseCase.createLibraryUser(libraryUserRecive);
+		return ResponseEntity.ok(
+				createLibraryUserUseCase.createLibraryUser(libraryUserRecive)
+		);
 	}
 	
 	@PutMapping("/")
 	public ResponseEntity<LibraryUserDto> updateLibraryUser(
 			@RequestBody LibraryUserRecive libraryUserRecive		
 	) {
-		return updateLibraryUserUseCase.updateLibraryUser(libraryUserRecive);
+		return ResponseEntity.ok(
+				updateLibraryUserUseCase.updateLibraryUser(libraryUserRecive)
+		);
 	}
 	
 	@DeleteMapping("/")
 	public ResponseEntity<LibraryUserDto> deleteLibraryUser(
 			@RequestParam Long id
 	) {
-		return deleteLibraryUserUseCase.deleteLibraryUser(id);
+		return ResponseEntity.ok(
+				deleteLibraryUserUseCase.deleteLibraryUser(id)
+		);
 	}
 	
 }

@@ -1,12 +1,12 @@
-package com.francisco.library_management.infraestructure.out.database.loan;
+package com.francisco.library_management.crud.infraestructure.out.database.loan;
 
 import org.springframework.stereotype.Repository;
 
-import com.francisco.library_management.application.ports.loan.CreateLoanRepository;
-import com.francisco.library_management.domain.models.Loan;
-import com.francisco.library_management.infraestructure.mapper.LoanMapper;
-import com.francisco.library_management.infraestructure.out.database.entities.LoanEntity;
-import com.francisco.library_management.infraestructure.out.database.repositories.LoanRepositoryDatabase;
+import com.francisco.library_management.crud.application.ports.loan.CreateLoanRepository;
+import com.francisco.library_management.crud.domain.models.Loan;
+import com.francisco.library_management.crud.infraestructure.mapper.LoanMapper;
+import com.francisco.library_management.crud.infraestructure.out.database.entities.LoanEntity;
+import com.francisco.library_management.crud.infraestructure.out.database.repositories.LoanRepositoryDatabase;
 
 @Repository
 public class CreateLoanRepositoryImpl implements CreateLoanRepository {

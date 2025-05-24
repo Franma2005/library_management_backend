@@ -1,13 +1,12 @@
-package com.francisco.library_management.usecase.category;
+package com.francisco.library_management.crud.usecase.category;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.francisco.library_management.application.services.category.CreateCategoryImpl;
-import com.francisco.library_management.domain.models.Category;
-import com.francisco.library_management.infraestructure.dto.CategoryDto;
-import com.francisco.library_management.infraestructure.mapper.CategoryMapper;
-import com.francisco.library_management.infraestructure.recive.CategoryRecive;
+import com.francisco.library_management.crud.application.services.category.CreateCategoryImpl;
+import com.francisco.library_management.crud.domain.models.Category;
+import com.francisco.library_management.crud.infraestructure.dto.CategoryDto;
+import com.francisco.library_management.crud.infraestructure.mapper.CategoryMapper;
+import com.francisco.library_management.crud.infraestructure.recive.CategoryRecive;
 
 @Component
 public class CreateCategoryUseCase {
@@ -18,10 +17,10 @@ public class CreateCategoryUseCase {
 		this.createCategoryImpl = createCategoryImpl;
 	}
 	
-	public ResponseEntity<CategoryDto> createCategory(CategoryRecive categoryRecive) {
+	public CategoryDto createCategory(CategoryRecive categoryRecive) {
 		Category category = CategoryMapper.categoryRecivetoCategory(categoryRecive);
 		createCategoryImpl.createCategory(category);
 		CategoryDto categoryDto = CategoryMapper.categorytoCategoryDto(category);
-		return ResponseEntity.ok(categoryDto);
+		return categoryDto;
 	}
 }

@@ -1,17 +1,17 @@
-package com.francisco.library_management.infraestructure.out.database.loan;
+package com.francisco.library_management.crud.infraestructure.out.database.loan;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import com.francisco.library_management.application.ports.loan.DeleteLoanRepository;
+import com.francisco.library_management.crud.application.ports.loan.DeleteLoanRepository;
 import com.francisco.library_management.crud.domain.filter.Criteria;
 import com.francisco.library_management.crud.domain.filter.CriteriaBuilder;
-import com.francisco.library_management.domain.models.Loan;
-import com.francisco.library_management.infraestructure.mapper.LoanMapper;
-import com.francisco.library_management.infraestructure.out.database.entities.LoanEntity;
-import com.francisco.library_management.infraestructure.out.database.repositories.LoanRepositoryDatabase;
+import com.francisco.library_management.crud.domain.models.Loan;
+import com.francisco.library_management.crud.infraestructure.mapper.LoanMapper;
+import com.francisco.library_management.crud.infraestructure.out.database.entities.LoanEntity;
+import com.francisco.library_management.crud.infraestructure.out.database.repositories.LoanRepositoryDatabase;
 
 @Repository
 public class DeleteLoanRepositoryImpl implements DeleteLoanRepository {

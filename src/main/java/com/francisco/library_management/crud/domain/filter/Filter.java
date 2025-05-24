@@ -1,6 +1,6 @@
 package com.francisco.library_management.crud.domain.filter;
 
-import io.micrometer.common.lang.NonNull;
+import lombok.NonNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

@@ -1,4 +1,4 @@
-package com.francisco.library_management.infraestructure.dto;
+package com.francisco.library_management.crud.infraestructure.dto;
 
 import lombok.Builder;
 import lombok.Getter;

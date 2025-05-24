@@ -1,19 +1,19 @@
-package com.francisco.library_management.infraestructure.out.database.loan;
+package com.francisco.library_management.crud.infraestructure.out.database.loan;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.francisco.library_management.application.ports.loan.LoanByCriteriaRepository;
+import com.francisco.library_management.crud.application.ports.loan.LoanByCriteriaRepository;
 import com.francisco.library_management.crud.domain.filter.Criteria;
 import com.francisco.library_management.crud.domain.filter.Filter;
-import com.francisco.library_management.domain.models.Loan;
-import com.francisco.library_management.infraestructure.filters.command.registry.LoanFilterCommandRegistry;
-import com.francisco.library_management.infraestructure.filters.interfaces.MyLoanCommand;
-import com.francisco.library_management.infraestructure.mapper.LoanGroupMapper;
-import com.francisco.library_management.infraestructure.out.database.entities.LoanEntity;
-import com.francisco.library_management.infraestructure.out.database.repositories.LoanRepositoryDatabase;
+import com.francisco.library_management.crud.domain.models.Loan;
+import com.francisco.library_management.crud.infraestructure.filters.command.registry.LoanFilterCommandRegistry;
+import com.francisco.library_management.crud.infraestructure.filters.interfaces.MyLoanCommand;
+import com.francisco.library_management.crud.infraestructure.mapper.LoanGroupMapper;
+import com.francisco.library_management.crud.infraestructure.out.database.entities.LoanEntity;
+import com.francisco.library_management.crud.infraestructure.out.database.repositories.LoanRepositoryDatabase;
 
 @Repository
 public class LoanByCriteriaRepositoryImpl implements LoanByCriteriaRepository {

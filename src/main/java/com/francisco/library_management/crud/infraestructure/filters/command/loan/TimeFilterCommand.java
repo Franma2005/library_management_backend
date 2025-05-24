@@ -1,11 +1,11 @@
-package com.francisco.library_management.infraestructure.filters.command.loan;
+package com.francisco.library_management.crud.infraestructure.filters.command.loan;
 
 import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Component;
 
-import com.francisco.library_management.domain.models.Loan;
-import com.francisco.library_management.infraestructure.filters.interfaces.MyLoanCommand;
+import com.francisco.library_management.crud.domain.models.Loan;
+import com.francisco.library_management.crud.infraestructure.filters.interfaces.MyLoanCommand;
 
 @Component
 public class TimeFilterCommand implements MyLoanCommand {

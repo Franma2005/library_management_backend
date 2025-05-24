@@ -1,9 +1,9 @@
-package com.francisco.library_management.infraestructure.mapper;
+package com.francisco.library_management.crud.infraestructure.mapper;
 
-import com.francisco.library_management.domain.models.Category;
-import com.francisco.library_management.infraestructure.dto.CategoryDto;
-import com.francisco.library_management.infraestructure.out.database.entities.CategoryEntity;
-import com.francisco.library_management.infraestructure.recive.CategoryRecive;
+import com.francisco.library_management.crud.domain.models.Category;
+import com.francisco.library_management.crud.infraestructure.dto.CategoryDto;
+import com.francisco.library_management.crud.infraestructure.out.database.entities.CategoryEntity;
+import com.francisco.library_management.crud.infraestructure.recive.CategoryRecive;
 
 public class CategoryMapper {
 

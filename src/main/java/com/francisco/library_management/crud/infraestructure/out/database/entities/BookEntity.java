@@ -1,4 +1,4 @@
-package com.francisco.library_management.infraestructure.out.database.entities;
+package com.francisco.library_management.crud.infraestructure.out.database.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

@@ -1,13 +1,12 @@
-package com.francisco.library_management.usecase.loan;
+package com.francisco.library_management.crud.usecase.loan;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.francisco.library_management.application.services.loan.UpdateLoanImpl;
-import com.francisco.library_management.domain.models.Loan;
-import com.francisco.library_management.infraestructure.dto.LoanDto;
-import com.francisco.library_management.infraestructure.mapper.LoanMapper;
-import com.francisco.library_management.infraestructure.recive.LoanRecive;
+import com.francisco.library_management.crud.application.services.loan.UpdateLoanImpl;
+import com.francisco.library_management.crud.domain.models.Loan;
+import com.francisco.library_management.crud.infraestructure.dto.LoanDto;
+import com.francisco.library_management.crud.infraestructure.mapper.LoanMapper;
+import com.francisco.library_management.crud.infraestructure.recive.LoanRecive;
 
 @Component
 public class UpdateLoanUseCase {
@@ -18,11 +17,11 @@ public class UpdateLoanUseCase {
 		this.updateLoanImpl = updateLoanImpl;
 	}
 	
-	public ResponseEntity<LoanDto> updateLoan(LoanRecive loanRecive) {
+	public LoanDto updateLoan(LoanRecive loanRecive) {
 		Loan loan = LoanMapper.loanRecivetoLoan(loanRecive);
 		updateLoanImpl.updateLoan(loan);
 		LoanDto loanDto = LoanMapper.loantoLoanDto(loan);
-		return ResponseEntity.ok(loanDto);
+		return loanDto;
 	}
 	
 }

@@ -1,10 +1,12 @@
-package com.francisco.library_management.application.ports.loan;
+package com.francisco.library_management.crud.application.ports.loan;
 
 import org.springframework.stereotype.Repository;
 
-import com.francisco.library_management.domain.models.Loan;
+import com.francisco.library_management.crud.domain.models.Loan;
 
 @Repository
 public interface UpdateLoanRepository {
-	boolean updateLoan(Loan loan);
+	
+	public boolean updateLoan(Loan loan);
+	
 }

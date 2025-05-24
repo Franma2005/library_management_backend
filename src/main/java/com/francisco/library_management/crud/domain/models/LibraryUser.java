@@ -1,4 +1,4 @@
-package com.francisco.library_management.domain.models;
+package com.francisco.library_management.crud.domain.models;
 
 import lombok.Builder;
 import lombok.Getter;

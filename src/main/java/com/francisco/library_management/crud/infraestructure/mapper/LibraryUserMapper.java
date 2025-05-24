@@ -1,9 +1,9 @@
-package com.francisco.library_management.infraestructure.mapper;
+package com.francisco.library_management.crud.infraestructure.mapper;
 
-import com.francisco.library_management.domain.models.LibraryUser;
-import com.francisco.library_management.infraestructure.dto.LibraryUserDto;
-import com.francisco.library_management.infraestructure.out.database.entities.LibraryUserEntity;
-import com.francisco.library_management.infraestructure.recive.LibraryUserRecive;
+import com.francisco.library_management.crud.domain.models.LibraryUser;
+import com.francisco.library_management.crud.infraestructure.dto.LibraryUserDto;
+import com.francisco.library_management.crud.infraestructure.out.database.entities.LibraryUserEntity;
+import com.francisco.library_management.crud.infraestructure.recive.LibraryUserRecive;
 
 public class LibraryUserMapper {
 	

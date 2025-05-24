@@ -1,4 +1,4 @@
-package com.francisco.library_management.application.ports.notification;
+package com.francisco.library_management.crud.application.ports.notification;
 
 public interface NotificationCategoryPort {
 

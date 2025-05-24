@@ -1,49 +1,43 @@
-package com.francisco.library_management.infraestructure.mapper;
+package com.francisco.library_management.crud.infraestructure.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.francisco.library_management.domain.models.Loan;
-import com.francisco.library_management.infraestructure.dto.LoanDto;
-import com.francisco.library_management.infraestructure.out.database.entities.LoanEntity;
-import com.francisco.library_management.infraestructure.recive.LoanRecive;
+import com.francisco.library_management.crud.domain.models.Loan;
+import com.francisco.library_management.crud.infraestructure.dto.LoanDto;
+import com.francisco.library_management.crud.infraestructure.out.database.entities.LoanEntity;
+import com.francisco.library_management.crud.infraestructure.recive.LoanRecive;
 
 public class LoanGroupMapper {
 
 	public static List<Loan> loanReciveGrouptoLoanGroup(List<LoanRecive> loanReciveGroup) {
 		List<Loan> loanGroup = new ArrayList<Loan>();
-		
+
 		for (LoanRecive loanRecive : loanReciveGroup) {
-			loanGroup.add(
-					LoanMapper.loanRecivetoLoan(loanRecive)
-			);
+			loanGroup.add(LoanMapper.loanRecivetoLoan(loanRecive));
 		}
-		
+
 		return loanGroup;
 	}
-	
+
 	public static List<Loan> loanEntityGrouptoLoanGroup(List<LoanEntity> loanEntityGroup) {
 		List<Loan> loanGroup = new ArrayList<Loan>();
-		
+
 		for (LoanEntity loanEntity : loanEntityGroup) {
-			loanGroup.add(
-					LoanMapper.loanEntitytoLoan(loanEntity)
-			);
+			loanGroup.add(LoanMapper.loanEntitytoLoan(loanEntity));
 		}
-		
+
 		return loanGroup;
 	}
-	
+
 	public static List<LoanDto> loanGrouptoLoanDtoGroup(List<Loan> loanGroup) {
 		List<LoanDto> loanDtoGroup = new ArrayList<LoanDto>();
-		
+
 		for (Loan loan : loanGroup) {
-			loanDtoGroup.add(
-					LoanMapper.loantoLoanDto(loan)
-			);
+			loanDtoGroup.add(LoanMapper.loantoLoanDto(loan));
 		}
-		
+
 		return loanDtoGroup;
 	}
-	
+
 }

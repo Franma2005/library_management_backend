@@ -1,4 +1,4 @@
-package com.francisco.library_management.infraestructure.exceptions.customExceptions;
+package com.francisco.library_management.crud.infraestructure.exceptions.customExceptions;
 
 public class CommandNotFoundException extends RuntimeException {
 	

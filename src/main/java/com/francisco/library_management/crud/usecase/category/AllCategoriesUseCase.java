@@ -1,18 +1,17 @@
-package com.francisco.library_management.usecase.category;
+package com.francisco.library_management.crud.usecase.category;
 
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.francisco.library_management.application.services.category.AllCategoriesImpl;
-import com.francisco.library_management.application.services.category.CategoryByCriteriaImpl;
+import com.francisco.library_management.crud.application.services.category.AllCategoriesImpl;
+import com.francisco.library_management.crud.application.services.category.CategoryByCriteriaImpl;
 import com.francisco.library_management.crud.domain.filter.Criteria;
 import com.francisco.library_management.crud.domain.filter.CriteriaBuilder;
-import com.francisco.library_management.domain.models.Category;
-import com.francisco.library_management.infraestructure.dto.CategoryDto;
-import com.francisco.library_management.infraestructure.mapper.CategoryGroupMapper;
+import com.francisco.library_management.crud.domain.models.Category;
+import com.francisco.library_management.crud.infraestructure.dto.CategoryDto;
+import com.francisco.library_management.crud.infraestructure.mapper.CategoryGroupMapper;
 
 @Component
 public class AllCategoriesUseCase {
@@ -26,7 +25,7 @@ public class AllCategoriesUseCase {
 		this.categoryByCriteriaImpl = categoryByCriteriaImpl;
 	}
 	
-	public ResponseEntity<List<CategoryDto>> findAllCategories(
+	public List<CategoryDto> findAllCategories(
 			Long id,
 			String category
 	) {
@@ -40,8 +39,6 @@ public class AllCategoriesUseCase {
 				:
 				categoryByCriteriaImpl.getCategoryByCriteria(criteria);
 		
-		return ResponseEntity.ok(
-				CategoryGroupMapper.categoryGrouptoCategoryDtoGroup(categoryReciveGroup)
-			);
+		return CategoryGroupMapper.categoryGrouptoCategoryDtoGroup(categoryReciveGroup);
 	}
 }

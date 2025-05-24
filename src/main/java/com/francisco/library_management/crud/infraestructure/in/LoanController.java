@@ -1,4 +1,4 @@
-package com.francisco.library_management.infraestructure.in;
+package com.francisco.library_management.crud.infraestructure.in;
 
 import java.util.List;
 
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.francisco.library_management.infraestructure.dto.LoanDto;
-import com.francisco.library_management.infraestructure.recive.LoanRecive;
-import com.francisco.library_management.usecase.loan.AllLoansUseCase;
-import com.francisco.library_management.usecase.loan.CreateLoanUseCase;
-import com.francisco.library_management.usecase.loan.DeleteLoanUseCase;
-import com.francisco.library_management.usecase.loan.UpdateLoanUseCase;
+import com.francisco.library_management.crud.infraestructure.dto.LoanDto;
+import com.francisco.library_management.crud.infraestructure.recive.LoanRecive;
+import com.francisco.library_management.crud.usecase.loan.AllLoansUseCase;
+import com.francisco.library_management.crud.usecase.loan.CreateLoanUseCase;
+import com.francisco.library_management.crud.usecase.loan.DeleteLoanUseCase;
+import com.francisco.library_management.crud.usecase.loan.UpdateLoanUseCase;
 
 @RestController
 @RequestMapping("/loan")
@@ -41,10 +41,12 @@ public class LoanController {
 			@RequestParam(required = false) Long idBook,
 			@RequestParam(required = false) Long idLibraryUser
  	) {
-		return allLoansUseCase.findAllLoan(
-				idLoan,
-				idBook, 
-				idLibraryUser
+		return ResponseEntity.ok(
+				allLoansUseCase.findAllLoan(
+						idLoan,
+						idBook, 
+						idLibraryUser
+				)
 		);
 	}
 	
@@ -52,21 +54,27 @@ public class LoanController {
 	public ResponseEntity<LoanDto> createLoan(
 			@RequestBody LoanRecive loanRecive
 	) {
-		return createLoanUseCase.createLoan(loanRecive);
+		return ResponseEntity.ok(
+				createLoanUseCase.createLoan(loanRecive)
+		);
 	}
 	
 	@PutMapping("/")
 	public ResponseEntity<LoanDto> updateLoan(
 			@RequestBody LoanRecive loanRecive
 	) {
-		return updateLoanUseCase.updateLoan(loanRecive);
+		return ResponseEntity.ok(
+				updateLoanUseCase.updateLoan(loanRecive)
+		);
 	}
 	
 	@DeleteMapping("/")
 	public ResponseEntity<LoanDto> deleteLoan(
 			@RequestParam Long id
 	) {
-		return deleteLoanUseCase.deleteLoan(id);
+		return ResponseEntity.ok(
+				deleteLoanUseCase.deleteLoan(id)
+		);
 	}
 	
 }

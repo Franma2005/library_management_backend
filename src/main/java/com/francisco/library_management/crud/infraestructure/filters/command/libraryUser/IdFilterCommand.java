@@ -1,9 +1,9 @@
-package com.francisco.library_management.infraestructure.filters.command.libraryUser;
+package com.francisco.library_management.crud.infraestructure.filters.command.libraryUser;
 
 import org.springframework.stereotype.Component;
 
-import com.francisco.library_management.domain.models.LibraryUser;
-import com.francisco.library_management.infraestructure.filters.interfaces.MyLibraryUserCommand;
+import com.francisco.library_management.crud.domain.models.LibraryUser;
+import com.francisco.library_management.crud.infraestructure.filters.interfaces.MyLibraryUserCommand;
 
 @Component("idFilterCommandLibraryUser")
 public class IdFilterCommand implements MyLibraryUserCommand {
@@ -21,6 +21,5 @@ public class IdFilterCommand implements MyLibraryUserCommand {
 		
 		return isIdValid;
 	}
-	
 	
 }

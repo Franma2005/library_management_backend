@@ -1,6 +1,6 @@
-package com.francisco.library_management.application.services.servicesInterfaces.category;
+package com.francisco.library_management.crud.application.services.servicesInterfaces.category;
 
-import com.francisco.library_management.domain.models.Category;
+import com.francisco.library_management.crud.domain.models.Category;
 
 public interface UpdateCategory {
 	void updateCategory(Category category);

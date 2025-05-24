@@ -1,19 +1,19 @@
-package com.francisco.library_management.infraestructure.out.database.book;
+package com.francisco.library_management.crud.infraestructure.out.database.book;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.francisco.library_management.application.ports.book.BookByCriteriaRepository;
+import com.francisco.library_management.crud.application.ports.book.BookByCriteriaRepository;
 import com.francisco.library_management.crud.domain.filter.Criteria;
 import com.francisco.library_management.crud.domain.filter.Filter;
-import com.francisco.library_management.domain.models.Book;
-import com.francisco.library_management.infraestructure.filters.command.registry.BookFilterCommandRegistry;
-import com.francisco.library_management.infraestructure.filters.interfaces.MyBookCommand;
-import com.francisco.library_management.infraestructure.mapper.BookGroupMapper;
-import com.francisco.library_management.infraestructure.out.database.entities.BookEntity;
-import com.francisco.library_management.infraestructure.out.database.repositories.BookRepositoryDatabase;
+import com.francisco.library_management.crud.domain.models.Book;
+import com.francisco.library_management.crud.infraestructure.filters.command.registry.BookFilterCommandRegistry;
+import com.francisco.library_management.crud.infraestructure.filters.interfaces.MyBookCommand;
+import com.francisco.library_management.crud.infraestructure.mapper.BookGroupMapper;
+import com.francisco.library_management.crud.infraestructure.out.database.entities.BookEntity;
+import com.francisco.library_management.crud.infraestructure.out.database.repositories.BookRepositoryDatabase;
 
 @Repository
 public class BookByCriteriaRepositoryImpl implements BookByCriteriaRepository {

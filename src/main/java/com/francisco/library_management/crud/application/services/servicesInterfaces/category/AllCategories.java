@@ -1,9 +1,11 @@
-package com.francisco.library_management.application.services.servicesInterfaces.category;
+package com.francisco.library_management.crud.application.services.servicesInterfaces.category;
+
+import com.francisco.library_management.crud.domain.models.Category;
 
 import java.util.List;
 
-import com.francisco.library_management.domain.models.Category;
-
 public interface AllCategories {
-	List<Category> getAllCategories();
+	
+	public List<Category> getAllCategories();
+	
 }

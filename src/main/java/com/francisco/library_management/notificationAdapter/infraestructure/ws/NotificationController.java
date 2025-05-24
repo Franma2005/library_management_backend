@@ -1,29 +1,28 @@
 package com.francisco.library_management.notificationAdapter.infraestructure.ws;
 
-import com.francisco.library_management.notificationAdapter.useCase.BookNotificationUseCase;
-import com.francisco.library_management.notificationAdapter.useCase.CategoryNotificationUseCase;
-import com.francisco.library_management.notificationAdapter.useCase.LibraryUserNotificationUseCase;
-import com.francisco.library_management.notificationAdapter.useCase.LoanNotificationUseCase;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Controller;
 
-public class NotificationController {
+import com.francisco.library_management.notificationAdapter.application.ports.NotificationPort;
+import com.francisco.library_management.notificationAdapter.model.NotificationMessage;
+import com.francisco.library_management.notificationAdapter.model.NotificationType;
 
-	private BookNotificationUseCase bookNotificationUseCase;
-	private CategoryNotificationUseCase categoryNotificationUseCase;
-	private LibraryUserNotificationUseCase libraryUserNotificationUseCase;
-	private LoanNotificationUseCase loanNotificationUseCase;
+@Controller
+public class NotificationController implements NotificationPort {
+
+	private final SimpMessagingTemplate simpMessagingTemplate;
 	
 	public NotificationController(
-			BookNotificationUseCase bookNotificationUseCase,
-			CategoryNotificationUseCase categoryNotificationUseCase,
-			LibraryUserNotificationUseCase libraryUserNotificationUseCase,
-			LoanNotificationUseCase loanNotificationUseCase
+			SimpMessagingTemplate simpMessagingTemplate
 	) {
-		this.bookNotificationUseCase = bookNotificationUseCase;
-		this.categoryNotificationUseCase = categoryNotificationUseCase;
-		this.libraryUserNotificationUseCase = libraryUserNotificationUseCase;
-		this.loanNotificationUseCase = loanNotificationUseCase;
+		this.simpMessagingTemplate = simpMessagingTemplate;
 	}
-	
-	
+
+	@Override
+	public void sendNotification(NotificationType notificationType) {
+		NotificationMessage notificationMessage = new NotificationMessage();
+		simpMessagingTemplate.convertAndSend(notificationMessage);
+	}
+
 	
 }

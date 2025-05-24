@@ -1,6 +1,9 @@
 package com.francisco.library_management.crud.application.services.category;
 
 import com.francisco.library_management.crud.domain.models.Category;
+import com.francisco.library_management.notificationAdapter.application.ports.NotificationPort;
+import com.francisco.library_management.notificationAdapter.model.NotificationType;
+
 import org.springframework.stereotype.Service;
 
 import com.francisco.library_management.crud.application.ports.category.CreateCategoryRepository;
@@ -10,18 +13,20 @@ import com.francisco.library_management.crud.application.services.servicesInterf
 public class CreateCategoryImpl implements CreateCategory {
 
 	private CreateCategoryRepository createCategoryRepository;
-	private NotificationCategoryPort notificationRepository;
+	private NotificationPort notificationPort;
 	
-	public CreateCategoryImpl(CreateCategoryRepository createCategoryRepository) {
+	public CreateCategoryImpl(
+			CreateCategoryRepository createCategoryRepository,
+			NotificationPort notificationPort
+	) {
 		this.createCategoryRepository = createCategoryRepository;
-		this.notificationRepository = notificationRepository;
+		this.notificationPort = notificationPort;
 	}
 	
 	@Override
 	public void createCategory(Category category) {
 		createCategoryRepository.createCategory(category);
-		notificationRepository.notifyCategoryChanges();
+		notificationPort.sendNotification(NotificationType.CATEGORYRELOAD);
 	}
 
-	
 }

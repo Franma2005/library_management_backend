@@ -1,6 +1,9 @@
 package com.francisco.library_management.crud.application.services.category;
 
 import com.francisco.library_management.crud.domain.models.Category;
+import com.francisco.library_management.notificationAdapter.application.ports.NotificationPort;
+import com.francisco.library_management.notificationAdapter.model.NotificationType;
+
 import org.springframework.stereotype.Service;
 
 import com.francisco.library_management.crud.application.ports.category.UpdateCategoryRepository;
@@ -10,17 +13,21 @@ import com.francisco.library_management.crud.application.services.servicesInterf
 public class UpdateCategoryImpl implements UpdateCategory {
 
 	private UpdateCategoryRepository updateCategoryRepository;
-	private NotificationCategoryPort notificationRepository;
+	private NotificationPort notificationPort;
 	
-	public UpdateCategoryImpl(UpdateCategoryRepository updateCategoryRepository) {
+	public UpdateCategoryImpl(
+			UpdateCategoryRepository updateCategoryRepository,
+			NotificationPort notificationPort
+	) {
 		this.updateCategoryRepository = updateCategoryRepository;
-		this.notificationRepository = notificationRepository;
+		this.notificationPort = notificationPort;
+		
 	}
 	
 	@Override
 	public void updateCategory(Category category) {
 		updateCategoryRepository.updateCategory(category);
-		notificationRepository.notifyCategoryChanges();
+		notificationPort.sendNotification(NotificationType.CATEGORYRELOAD);
 	}
 	
 }

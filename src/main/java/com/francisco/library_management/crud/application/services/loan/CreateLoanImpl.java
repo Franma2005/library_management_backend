@@ -1,6 +1,9 @@
 package com.francisco.library_management.crud.application.services.loan;
 
 import com.francisco.library_management.crud.domain.models.Loan;
+import com.francisco.library_management.notificationAdapter.application.ports.NotificationPort;
+import com.francisco.library_management.notificationAdapter.model.NotificationType;
+
 import org.springframework.stereotype.Service;
 
 import com.francisco.library_management.crud.application.ports.loan.CreateLoanRepository;
@@ -10,17 +13,20 @@ import com.francisco.library_management.crud.application.services.servicesInterf
 public class CreateLoanImpl implements CreateLoan {
 
 	private CreateLoanRepository createLoanRepository;
-	private NotificationLoanPort notificationRepository;
+	private NotificationPort notificationPort;
 	
-	public CreateLoanImpl(CreateLoanRepository createLoanRepository) {
+	public CreateLoanImpl(
+			CreateLoanRepository createLoanRepository,
+			NotificationPort notificationPort			
+	) {
 		this.createLoanRepository = createLoanRepository;
-		this.notificationRepository = notificationRepository;
+		this.notificationPort = notificationPort;
 	}
 	
 	@Override
 	public void createLoan(Loan loan) {
 		createLoanRepository.createLoan(loan);
-		notificationRepository.notifyLoanChanges();
+		notificationPort.sendNotification(NotificationType.LOANRELOAD);
 	}
 	
 }

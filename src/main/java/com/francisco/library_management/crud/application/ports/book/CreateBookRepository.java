@@ -7,6 +7,6 @@ import com.francisco.library_management.crud.domain.models.Book;
 @Repository
 public interface CreateBookRepository {
 	
-	public boolean createBook(Book book);
+	public Book createBook(Book book);
 	
 }

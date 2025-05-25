@@ -25,9 +25,10 @@ public class UpdateBookImpl implements UpdateBook {
 	}
 	
 	@Override
-	public void updateBook(Book book) {
-		updateBookRepository.updateBook(book);
+	public Book updateBook(Book book) {
+		Book bookResponse = updateBookRepository.updateBook(book);
 		notificationPort.sendNotification(NotificationType.BOOKRELOAD);
+		return bookResponse;
 	}
 
 }

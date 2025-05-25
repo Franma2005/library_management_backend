@@ -3,6 +3,7 @@ package com.francisco.library_management.crud.infraestructure.mapper;
 import com.francisco.library_management.crud.domain.models.Book;
 import com.francisco.library_management.crud.infraestructure.dto.BookDto;
 import com.francisco.library_management.crud.infraestructure.out.database.entities.BookEntity;
+import com.francisco.library_management.crud.infraestructure.out.database.entities.CategoryEntity;
 import com.francisco.library_management.crud.infraestructure.recive.BookRecive;
 
 public class BookMapper {
@@ -13,17 +14,18 @@ public class BookMapper {
 				.name(bookRecive.getName())
 				.author(bookRecive.getAuthor())
 				.editorial(bookRecive.getEditorial())
-				.category(bookRecive.getCategory())
+				.categoryId(bookRecive.getCategory())
 				.build();
 	}
 	
 	public static Book bookEntityToBook(BookEntity bookEntity) {
 		return Book.builder()
-				.id(0)
+				.id(bookEntity.getId())
 				.name(bookEntity.getName())
 				.author(bookEntity.getAuthor())
 				.editorial(bookEntity.getEditorial())
-				.category(bookEntity.getCategory())
+				.categoryId(bookEntity.getCategory().getId())
+				.category(CategoryMapper.categoryEntitytoCategory(bookEntity.getCategory()))
 				.build();
 	}
 	
@@ -33,17 +35,17 @@ public class BookMapper {
 				.name(book.getName())
 				.author(book.getAuthor())
 				.editorial(book.getEditorial())
-				.category(book.getCategory())
+				.category(CategoryMapper.categorytoCategoryDto(book.getCategory()))
 				.build();
 	}
 	
-	public static BookEntity bookToBookEntity(Book book) {
+	public static BookEntity bookToBookEntity(Book book, CategoryEntity categoryEntity) {
 		return BookEntity.builder()
 				.id(book.getId())
 				.name(book.getName())
 				.author(book.getAuthor())
 				.editorial(book.getEditorial())
-				.category(book.getCategory())
+				.category(categoryEntity)
 				.build();
 	}
 	

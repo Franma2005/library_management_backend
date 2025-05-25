@@ -12,5 +12,5 @@ public class BookDto {
 	private String name;
 	private String author;
 	private String editorial;
-	private long category;
+	private CategoryDto category;
 }

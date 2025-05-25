@@ -35,7 +35,7 @@ public class LibraryUserByCriteriaRepositoryImpl implements LibraryUserByCriteri
 		if(!criteria.getFilter().isEmpty())
 			libraryUserGroup = filter(libraryUserGroup, criteria);
 		
-		return null;
+		return libraryUserGroup;
 	}
 	
 	private List<LibraryUser> mapToLibraryUserGroup(List<LibraryUserEntity> libraryUserEntityGroup) {
@@ -46,7 +46,7 @@ public class LibraryUserByCriteriaRepositoryImpl implements LibraryUserByCriteri
 		List<LibraryUser> libraryUserGroupFilter = new ArrayList<LibraryUser>();
 		for (LibraryUser libraryUser : libraryUserGroup) {
 			if(matchesCriteria(libraryUser, criteria.getFilter()))
-				libraryUserGroup.add(libraryUser);
+				libraryUserGroupFilter.add(libraryUser);
 		}
 		
 		return libraryUserGroupFilter;

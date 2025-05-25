@@ -6,10 +6,18 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
+import com.francisco.library_management.auth.middleware.JwtHandshakeInterceptor;
+
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer {
 
+	private JwtHandshakeInterceptor jwtHandshakeInterceptor;
+	
+	public WebSocketConfiguration(JwtHandshakeInterceptor jwtHandshakeInterceptor) {
+		this.jwtHandshakeInterceptor = jwtHandshakeInterceptor;
+	}
+	
 	@Override
 	public void configureMessageBroker(MessageBrokerRegistry registry) {
 		registry.enableSimpleBroker("/alert");
@@ -18,7 +26,9 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer 
 	
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
-		registry.addEndpoint();
+		registry.addEndpoint("/notifications")
+				.addInterceptors(jwtHandshakeInterceptor)
+				.setAllowedOrigins("*");
 	}
 	
 }

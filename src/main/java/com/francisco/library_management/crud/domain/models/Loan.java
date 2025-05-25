@@ -10,8 +10,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Loan {
-	private long idLoan;
-	private long idBook;
-	private long idLibraryUser;
+	private Long idLoan;
+	private Long idBook;
+	private Book book;
+	private Long idLibraryUser;
+	private LibraryUser libraryUser;
 	private LocalDateTime time;
 }

@@ -19,8 +19,8 @@ public class CreateBookUseCase {
 
 	public BookDto createBook(BookRecive bookRecive) {
 		Book book = BookMapper.bookReciveToBook(bookRecive);
-		createBookImpl.createBook(book);
-		BookDto bookDto = BookMapper.bookToBookDto(book);
+		Book bookResponse = createBookImpl.createBook(book);
+		BookDto bookDto = BookMapper.bookToBookDto(bookResponse);
 		return bookDto;
 	}
 	

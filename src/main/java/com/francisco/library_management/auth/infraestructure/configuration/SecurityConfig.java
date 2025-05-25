@@ -50,6 +50,7 @@ public class SecurityConfig {
 			AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry auth
 	) {
 	    auth.requestMatchers("/auth/**").permitAll()
+	    	.requestMatchers("/notifications").permitAll()
 	        .anyRequest().authenticated();
 	}
 	

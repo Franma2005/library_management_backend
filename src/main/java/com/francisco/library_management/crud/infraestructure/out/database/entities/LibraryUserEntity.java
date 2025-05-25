@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "libraryUser")
 public class LibraryUserEntity {
 	@Id
-	private long id;
+	private Long id;
 	private String name;
 	private String surname;
 }

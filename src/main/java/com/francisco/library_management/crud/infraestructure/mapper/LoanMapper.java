@@ -2,6 +2,8 @@ package com.francisco.library_management.crud.infraestructure.mapper;
 
 import com.francisco.library_management.crud.domain.models.Loan;
 import com.francisco.library_management.crud.infraestructure.dto.LoanDto;
+import com.francisco.library_management.crud.infraestructure.out.database.entities.BookEntity;
+import com.francisco.library_management.crud.infraestructure.out.database.entities.LibraryUserEntity;
 import com.francisco.library_management.crud.infraestructure.out.database.entities.LoanEntity;
 import com.francisco.library_management.crud.infraestructure.recive.LoanRecive;
 
@@ -19,8 +21,8 @@ public class LoanMapper {
 	public static Loan loanEntitytoLoan(LoanEntity loanEntity) {
 		return Loan.builder()
 				.idLoan(loanEntity.getIdLoan())
-				.idBook(loanEntity.getIdBook())
-				.idLibraryUser(loanEntity.getIdLibraryUser())
+				.idBook(loanEntity.getBook().getId())
+				.idLibraryUser(loanEntity.getLibraryUser().getId())
 				.time(loanEntity.getTime())
 				.build();
 	}
@@ -34,11 +36,11 @@ public class LoanMapper {
 				.build();
 	}
 	
-	public static LoanEntity loantoLoanEntity(Loan loan) {
+	public static LoanEntity loantoLoanEntity(Loan loan, BookEntity bookEntity, LibraryUserEntity libraryUserEntity) {
 		return LoanEntity.builder()
 				.idLoan(loan.getIdLoan())
-				.idBook(loan.getIdBook())
-				.idLibraryUser(loan.getIdLibraryUser())
+				.book(bookEntity)
+				.libraryUser(libraryUserEntity)
 				.time(loan.getTime())
 				.build();
 	}

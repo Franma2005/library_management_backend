@@ -16,7 +16,7 @@ public class CategoryFilterCommand implements MyBookCommand {
 		
 		if(value instanceof Long) {
 			Long valueCast = (Long) value;
-			isCategoryValid = (book.getCategory() == valueCast);
+			isCategoryValid = (book.getCategoryId() == valueCast);
 		}
 		
 		return isCategoryValid;

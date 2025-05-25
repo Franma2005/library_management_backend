@@ -24,9 +24,10 @@ public class CreateBookImpl implements CreateBook {
 	}
 	
 	@Override
-	public void createBook(Book book) {
-		createBookRepository.createBook(book);
+	public Book createBook(Book book) {
+		Book bookReturn = createBookRepository.createBook(book);
 		notificationPort.sendNotification(NotificationType.BOOKRELOAD);
+		return bookReturn;
 	}
 	
 }

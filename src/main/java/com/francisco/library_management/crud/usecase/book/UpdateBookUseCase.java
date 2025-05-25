@@ -19,8 +19,8 @@ public class UpdateBookUseCase {
 	
 	public BookDto uploadBook(BookRecive bookRecive) {
 		Book book = BookMapper.bookReciveToBook(bookRecive);
-		uploadBookRepository.updateBook(book);
-		BookDto bookDto = BookMapper.bookToBookDto(book);
+		Book bookResponse = uploadBookRepository.updateBook(book);
+		BookDto bookDto = BookMapper.bookToBookDto(bookResponse);
 		return bookDto;
 	}
 }

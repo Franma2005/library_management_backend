@@ -8,9 +8,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Book {
-	private long id;
+	private Long id;
 	private String name;
 	private String author;
 	private String editorial;
-	private long category;
+	private Long categoryId;
+	private Category category;
 }

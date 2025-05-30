@@ -1,5 +1,7 @@
 package com.francisco.library_management.crud.usecase.loan;
 
+import java.time.LocalDateTime;
+
 import org.springframework.stereotype.Component;
 
 import com.francisco.library_management.crud.application.services.loan.CreateLoanImpl;
@@ -18,9 +20,10 @@ public class CreateLoanUseCase {
 	}
 	
 	public LoanDto createLoan(LoanRecive loanRecive) {
+		loanRecive.setTime(LocalDateTime.now());
 		Loan loan = LoanMapper.loanRecivetoLoan(loanRecive);
-		createLoanImpl.createLoan(loan);
-		LoanDto loanDto = LoanMapper.loantoLoanDto(loan);
+		Loan loanResponse = createLoanImpl.createLoan(loan);
+		LoanDto loanDto = LoanMapper.loantoLoanDto(loanResponse);
 		return loanDto;
 	}
 }

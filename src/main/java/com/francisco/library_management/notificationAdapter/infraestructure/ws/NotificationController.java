@@ -20,9 +20,9 @@ public class NotificationController implements NotificationPort {
 
 	@Override
 	public void sendNotification(NotificationType notificationType) {
-		NotificationMessage notificationMessage = new NotificationMessage();
+		NotificationMessage notificationMessage = new NotificationMessage(notificationType);
+		System.out.println(notificationMessage.toString());
 		simpMessagingTemplate.convertAndSend("alert/notifications", notificationMessage);
 	}
-
 	
 }

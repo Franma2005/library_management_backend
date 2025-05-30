@@ -16,7 +16,7 @@ public class IdLibraryUserFilterCommand implements MyLoanCommand {
 		
 		if(value instanceof Long) {
 			Long valueCast = (Long) value;
-			isIdLibraryUserValid = (valueCast == entity.getIdLibraryUser());
+			isIdLibraryUserValid = (valueCast == entity.getLibraryUser().getId());
 		}
 		
 		return isIdLibraryUserValid;

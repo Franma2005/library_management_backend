@@ -22,6 +22,7 @@ public class AllLoansRepositoryImpl implements AllLoansRepository {
 	@Override
 	public List<Loan> getAllLoan() {
 		List<LoanEntity> loanEntityGroup = loanRepositoryDatabase.findAll();
+		System.out.println(loanEntityGroup.toString());
 		List<Loan> loanGroup = mapToLoan(loanEntityGroup);
 		return loanGroup;
 	}

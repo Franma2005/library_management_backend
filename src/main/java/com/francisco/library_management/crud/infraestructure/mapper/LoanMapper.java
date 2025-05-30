@@ -22,7 +22,9 @@ public class LoanMapper {
 		return Loan.builder()
 				.idLoan(loanEntity.getIdLoan())
 				.idBook(loanEntity.getBook().getId())
+				.book(BookMapper.bookEntityToBook(loanEntity.getBook()))
 				.idLibraryUser(loanEntity.getLibraryUser().getId())
+				.libraryUser(LibraryUserMapper.libraryUserEntitytoLibraryUser(loanEntity.getLibraryUser()))
 				.time(loanEntity.getTime())
 				.build();
 	}
@@ -30,8 +32,8 @@ public class LoanMapper {
 	public static LoanDto loantoLoanDto(Loan loan) {
 		return LoanDto.builder()
 				.idLoan(loan.getIdLoan())
-				.idBook(loan.getIdBook())
-				.idLibraryUser(loan.getIdLibraryUser())
+				.book(BookMapper.bookToBookDto(loan.getBook()))
+				.libraryUser(LibraryUserMapper.libraryUsertoLibraryUserDto(loan.getLibraryUser()))
 				.time(loan.getTime())
 				.build();
 	}

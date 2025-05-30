@@ -24,10 +24,10 @@ public class UpdateLoanImpl implements UpdateLoan {
 	}
 
 	@Override
-	public void updateLoan(Loan loan) {
-		updateLoanRepository.updateLoan(loan);
+	public Loan updateLoan(Loan loan) {
+		Loan loanResponse = updateLoanRepository.updateLoan(loan);
 		notificationPort.sendNotification(NotificationType.LOANRELOAD);
+		return loanResponse;
 	}
-	
 	
 }

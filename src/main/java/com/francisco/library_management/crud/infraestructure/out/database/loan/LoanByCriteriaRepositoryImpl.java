@@ -32,10 +32,10 @@ public class LoanByCriteriaRepositoryImpl implements LoanByCriteriaRepository {
 		List<LoanEntity> loanEntityGroup = loanRepositoryDatabase.findAll();
 		List<Loan> loanGroup = mapToLoan(loanEntityGroup);
 		
-		if(criteria == null)
+		if(!criteria.getFilter().isEmpty())
 			loanGroup = filter(loanGroup, criteria);
 			
-		return null;
+		return loanGroup;
 	}
 	
 	private List<Loan> mapToLoan(List<LoanEntity> loanEntityGroup) {
@@ -57,7 +57,7 @@ public class LoanByCriteriaRepositoryImpl implements LoanByCriteriaRepository {
 		boolean allFiltersComplete = true;
 		
 		for (Filter<?> filter : filters) {
-			if(matchesFilter(loan, filter))
+			if(!matchesFilter(loan, filter))
 				allFiltersComplete = false;
 				
 		}
@@ -69,7 +69,8 @@ public class LoanByCriteriaRepositoryImpl implements LoanByCriteriaRepository {
 		String field = filter.getField();
 		Object value = filter.getValue();
 		
-		MyLoanCommand myLoanCommand = loanFilterCommandRegistry.getCommand(field);
+		MyLoanCommand myLoanCommand =
+				loanFilterCommandRegistry.getCommand(field);
 		return myLoanCommand.execute(loan, value);
 	}
 	

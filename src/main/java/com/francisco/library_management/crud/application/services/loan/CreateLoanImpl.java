@@ -24,9 +24,10 @@ public class CreateLoanImpl implements CreateLoan {
 	}
 	
 	@Override
-	public void createLoan(Loan loan) {
-		createLoanRepository.createLoan(loan);
+	public Loan createLoan(Loan loan) {
+		Loan loanResponse = createLoanRepository.createLoan(loan);
 		notificationPort.sendNotification(NotificationType.LOANRELOAD);
+		return loanResponse;
 	}
 	
 }

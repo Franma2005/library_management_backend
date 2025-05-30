@@ -51,6 +51,7 @@ public class SecurityConfig {
 	) {
 	    auth.requestMatchers("/auth/**").permitAll()
 	    	.requestMatchers("/notifications").permitAll()
+	    	.requestMatchers("/notifications/**").permitAll()
 	        .anyRequest().authenticated();
 	}
 	

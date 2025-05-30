@@ -3,5 +3,5 @@ package com.francisco.library_management.crud.application.services.servicesInter
 import com.francisco.library_management.crud.domain.models.Loan;
 
 public interface UpdateLoan {
-	void updateLoan(Loan loan);
+	public Loan updateLoan(Loan loan);
 }

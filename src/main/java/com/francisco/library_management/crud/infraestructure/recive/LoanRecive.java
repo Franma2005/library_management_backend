@@ -5,13 +5,15 @@ import java.time.LocalDateTime;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Builder
 @Getter
 @Setter
+@ToString
 public class LoanRecive {
-	private long idLoan;
-	private long idBook;
-	private long idLibraryUser;
+	private Long idLoan;
+	private Long idBook;
+	private Long idLibraryUser;
 	private LocalDateTime time;
 }

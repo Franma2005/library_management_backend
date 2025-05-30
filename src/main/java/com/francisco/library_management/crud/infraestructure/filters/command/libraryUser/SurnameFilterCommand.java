@@ -16,7 +16,7 @@ public class SurnameFilterCommand implements MyLibraryUserCommand {
 		
 		if(value instanceof String) {
 			String valueCast = (String) value;
-			isSurnameValid = (valueCast.equals(valueCast));
+			isSurnameValid = (entity.getSurname().equals(valueCast));
 		}
 			
 		return isSurnameValid;

@@ -16,7 +16,7 @@ public class EditorialFilterCommand implements MyBookCommand {
 		
 		if(value instanceof String) {
 			String valueCast = (String) value;
-			isEditorialValid = (valueCast.equals(valueCast));
+			isEditorialValid = (book.getEditorial().equals(valueCast));
 		}
 		
 		return isEditorialValid;

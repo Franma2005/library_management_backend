@@ -7,6 +7,6 @@ import com.francisco.library_management.crud.domain.models.Loan;
 @Repository
 public interface UpdateLoanRepository {
 	
-	public boolean updateLoan(Loan loan);
+	public Loan updateLoan(Loan loan);
 	
 }

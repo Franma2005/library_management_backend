@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.francisco.library_management.crud.application.ports.loan.CreateLoanRepository;
 import com.francisco.library_management.crud.domain.models.Loan;
 import com.francisco.library_management.crud.infraestructure.exceptions.customExceptions.IdBookNotFoundException;
-import com.francisco.library_management.crud.infraestructure.exceptions.customExceptions.IdCategoryNotFoundException;
+import com.francisco.library_management.crud.infraestructure.exceptions.customExceptions.IdLibraryUserNotFoundException;
 import com.francisco.library_management.crud.infraestructure.mapper.LoanMapper;
 import com.francisco.library_management.crud.infraestructure.out.database.entities.BookEntity;
 import com.francisco.library_management.crud.infraestructure.out.database.entities.LibraryUserEntity;
@@ -34,10 +34,15 @@ public class CreateLoanRepositoryImpl implements CreateLoanRepository {
 	}
 
 	@Override
-	public boolean createLoan(Loan loan) {
+	public Loan createLoan(Loan loan) {
 		LoanEntity loanEntity = mapToLoanEntity(loan);
-		loanRepositoryDatabase.save(loanEntity);
-		return true;
+		System.out.println(loanEntity);
+		LoanEntity loanEntityResponse = loanRepositoryDatabase.save(loanEntity);
+		return mapToLoan(loanEntityResponse);
+	}
+	
+	private Loan mapToLoan(LoanEntity loanEntity) {
+		return LoanMapper.loanEntitytoLoan(loanEntity);
 	}
 	
 	private LoanEntity mapToLoanEntity(Loan loan) {
@@ -48,16 +53,20 @@ public class CreateLoanRepositoryImpl implements CreateLoanRepository {
 				libraryUserRepositoryDatabase.findById(loan.getIdLibraryUser());
 		
 		if(temporalBookEntity.isEmpty() || temporalLibraryUserEntity.isEmpty())
-			throwIdsException();
+			throwIdsException(temporalBookEntity, temporalLibraryUserEntity);
 		
-		return LoanMapper.loantoLoanEntity(loan);
+		return LoanMapper.loantoLoanEntity(loan, temporalBookEntity.get(), temporalLibraryUserEntity.get());
 	}
 	
 	private void throwIdsException(
 			Optional<BookEntity> temporalBookEntity,
 			Optional<LibraryUserEntity> temporalLibraryUserEntity
 	) {
-		if(temporalBookEntity.isEmpty()) throw new IdBookNotFoundException();
+		if(temporalBookEntity.isEmpty())
+			throw new IdBookNotFoundException();
+		
+		if(temporalLibraryUserEntity.isEmpty())
+			throw new IdLibraryUserNotFoundException();
 	}
 	
 }
